@@ -1,0 +1,53 @@
+.left-section {
+    flex: 2.5;
+    height: 100%;
+    background: #2395ff;
+}
+
+.display-app{
+    transform: translate(125px, 50px);
+}
+
+.auth-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.bot-action{
+    margin-right: 8vw;
+}
+
+input[type='checkbox']{
+    cursor: pointer;
+}
+
+.btn-signin{
+    outline: none;
+    border: none;
+    background-color: #ffffff;
+    font-weight: bold;
+    height: 7vh;
+    width: 319px;
+    color: #2395ff;
+    border: 1px solid #2395FF;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.btn-signin:hover{
+    color: #ffffff;
+    background: #2395FF;
+    box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+    border-radius: 10px;
+}
+
+.txt-forgot{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+    color: #000000;
+    transform: translateX(-5vw);
+}
