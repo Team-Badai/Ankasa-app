@@ -3,7 +3,7 @@ import Navbar from '../../../Components/module/Navbar'
 import Footer from '../../../Components/module/Footer'
 
 
-const History = () => {
+const Booking = () => {
   return (
     <div className='d-flex flex-column wrapper-home'>
       <Navbar></Navbar>
@@ -30,4 +30,4 @@ const History = () => {
   )
 }
 
-export default History
+export default Booking

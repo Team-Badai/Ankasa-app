@@ -10,3 +10,15 @@
 .bg-primary {
   background-color: #2395FF!important;
 }
+
+.rounded {
+  border-radius: 20px!important;
+}
+
+.lh-1 {
+  line-height: 0.5!important;
+}
+
+.mt-6 {
+  margin-top: 120px;
+}

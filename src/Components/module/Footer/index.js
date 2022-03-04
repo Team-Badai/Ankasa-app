@@ -6,10 +6,11 @@ import twitter from '../../../assets/img/twitter.svg'
 import facebook from '../../../assets/img/facebook.svg'
 import instagram from '../../../assets/img/instagram.svg'
 import youtube from '../../../assets/img/youtube.svg'
+import pin from '../../../assets/img/map-pin.svg'
 
 const Footer = () => {
     return (
-        <div className='footer d-flex justify-content-around p-3 d-none d-md-flex h-100'>
+        <div className='footer d-flex justify-content-around p-3 d-none d-md-flex h-100 mt-6'>
             <div class="d-flex flex-column bd-highlight">
                 <div className='mb-auto bd-highlight'>
                     <img src={logo} alt="" />
@@ -17,7 +18,7 @@ const Footer = () => {
                     <p class="mt-3 text-secondary">Find your Flight and explore the <br></br>
                         world with us. We will take care of the rest</p>
                 </div>
-                <p className='text-secondary bd-highlight'>© Ankasa.  All Rights Reserved.</p>
+                <p className='text-secondary bd-highlight mt-6'>© Ankasa.  All Rights Reserved.</p>
             </div>
             <div class="">
                 <p class="fw-bolder">Features</p>
@@ -41,7 +42,10 @@ const Footer = () => {
                         <img className='mx-3' src={youtube} alt="" />
                     </div>
                 </div>
-                <p className='text-secondary bd-highlight'>Jakarta Indonesia</p>
+                <div className='mb-3'>
+                    <img src={pin} alt="" />
+                    <span className='text-secondary bd-highlight ms-2'>Jakarta Indonesia</span>
+                </div>
             </div>
         </div>
     )

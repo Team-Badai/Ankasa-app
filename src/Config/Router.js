@@ -4,7 +4,8 @@ import Auth from "../Pages/Auth";
 import Login from "../Pages/Auth/Login";
 import ResetPassword from "../Pages/Auth/ResetPassword";
 import SignUp from "../Pages/Auth/SignUp";
-import Booking from "../Pages/Main/Booking"
+import Booking from "../Pages/Main/Booking";
+import BookingDetail from "../Pages/Main/BookingDetail"
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
         </Route>
         <Route path={"/main"}>
           <Route path="booking" element={<Booking />} />
+          <Route path="booking-detail" element={<BookingDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

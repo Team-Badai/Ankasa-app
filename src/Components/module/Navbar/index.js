@@ -19,11 +19,8 @@ const Navbar = () => {
     const handleSearch = (e) => {
         if (e.key === "Enter") {
             setSearchParams({ search: e.target.value });
-            // navigate("/main/search");
         }
     };
-
-
 
     return (
         <div className='navbar d-flex justify-content-around p-5 shadow-sm'>
