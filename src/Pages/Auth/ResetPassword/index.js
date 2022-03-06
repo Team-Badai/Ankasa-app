@@ -17,7 +17,8 @@ const ResetPassword = () => {
 
   return (
     <Fragment>
-      <section className="right-section p-5">
+      <section className="row col-xl-4 right-section p-xl-5">
+        <div className="form">
       <div className="header">
           <img src={Logo} alt="" />
         </div>
@@ -31,8 +32,9 @@ const ResetPassword = () => {
             onChange={handleChange}
             value={form.email}
           />
-          <Button className="btn-login mt-4">Send</Button>
+          <Button className="btn-login mt-5">Send</Button>
           <p className='mt-3'>You’ll get message soon on your email</p>
+        </div>
         </div>
       </section>
     </Fragment>
