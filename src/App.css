@@ -11,6 +11,10 @@ body {
   background-color: #ffffff;
 }
 
+*::-webkit-scrollbar {
+  display: none!important;
+}
+
 *:focus {
   outline: none;
 }
