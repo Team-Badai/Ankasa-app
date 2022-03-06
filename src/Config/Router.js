@@ -6,6 +6,7 @@ import ResetPassword from "../Pages/Auth/ResetPassword";
 import SignUp from "../Pages/Auth/SignUp";
 import Booking from "../Pages/Main/Booking";
 import BookingDetail from "../Pages/Main/BookingDetail"
+import SearchPage from "../Pages/Main/SearchFlight";
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path={"/main"}>
           <Route path="booking" element={<Booking />} />
           <Route path="booking-detail" element={<BookingDetail />} />
+          <Route path="search-result" element={<SearchPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
