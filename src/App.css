@@ -2,9 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Nunito Sans", sans-serif;
   outline: none;
   border: none;
+  font-family: "Poppins";
 }
 
 body {
@@ -24,6 +24,11 @@ body::-webkit-scrollbar-thumb {
   outline: none;
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Regular.ttf"), url("./fonts/Poppins-Bold.ttf");
+}
+
 .bg-primary {
   background-color: #2395ff !important;
 }
@@ -38,4 +43,20 @@ body::-webkit-scrollbar-thumb {
 
 .mt-6 {
   margin-top: 120px;
+}
+
+.bg-light {
+  background: #f5f6fa !important;
+}
+
+.border-primary {
+  border-color: #2395ff !important;
+}
+
+.text-primary {
+  color: #2395ff !important;
+}
+
+.cursor {
+  cursor: pointer;
 }
