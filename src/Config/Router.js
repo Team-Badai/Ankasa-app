@@ -7,6 +7,9 @@ import SignUp from "../Pages/Auth/SignUp";
 import Booking from "../Pages/Main/Booking";
 import BookingDetail from "../Pages/Main/BookingDetail"
 import Payment from "../Pages/Main/Payment";
+import Chat from "../Pages/Main/Chat";
+import Notification from "../Pages/Main/Notification";
+import Profile from "../Pages/Main/Profile";
 
 const Router = () => {
   return (
@@ -21,6 +24,9 @@ const Router = () => {
           <Route path="booking" element={<Booking />} />
           <Route path="booking-detail" element={<BookingDetail />} />
           <Route path="payment" element={<Payment />} />
+          <Route path="profile" element={<Profile/>}/>
+          <Route path="chat" element={<Chat/>}/>
+          <Route path="notification" element={<Notification/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
