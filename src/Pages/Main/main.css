@@ -1,19 +1,19 @@
 .btn-sign {
-    width: 10vw;
+  width: 10vw;
 }
 
 .three-dots:after {
-    cursor: pointer;
-    color: #2395FF;
-    content: '\2807';
-    font-size: 30px;
-    padding: 0 5px;
-  }
+  cursor: pointer;
+  color: #2395ff;
+  content: "\2807";
+  font-size: 30px;
+  padding: 0 5px;
+}
 
 .booking-pass {
-    padding: 50px;
-    width: 65vw;
-    height: 80vh;
+  padding: 50px;
+  width: 65vw;
+  height: 80vh;
 }
 
 .board {
@@ -38,8 +38,8 @@
 }
 
 .ticket {
-    height: 55vh;
-    width: 57vw;
+  height: 55vh;
+  width: 57vw;
 }
 
 .left-one {
