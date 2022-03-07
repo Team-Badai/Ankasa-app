@@ -47,7 +47,6 @@ const SearchPage = () => {
                         </div>
                         <div className={`${style['combine-side']} d-flex flex-fill flex-column ms-3`}>
                             <Card />
-                            <Card />
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ const BlueBar = (props) => {
                 <div className={`${style['left-side']} d-flex`}>
                     <img src={smallPlane} alt="" width={50}/>
                     <div className={`${style['search-area']} d-flex px-2 ms-2`}>
-                        <div className={`${style['left-search']} d-flex flex-column w-100 flex-fill py-3 justify-content-center`}>
+                        <div className={`${style['left-search']} d-flex flex-column flex-fill py-3 justify-content-center`}>
                             <div className={`${style["content-wrapper"]}`}>
                                 <div className="top d-flex justify-content-between">
                                     <div className={`${style['font-12']}`}>

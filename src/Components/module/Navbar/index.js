@@ -29,7 +29,7 @@ const Navbar = () => {
                 <span className='ms-3 fs-5 fw-bolder'>Ankasa</span>
             </div>
             <div className='d-flex'>
-                <form class="rounded bg-light p-2">
+                <form className="rounded bg-light p-2">
                     <img src={search} alt="" />
                     <Input
                         className="p-1 ms-1 rounded bg-light border-0"
