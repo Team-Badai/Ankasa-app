@@ -11,7 +11,7 @@ import review from '../../../assets/img/Vector.svg'
 import settings from '../../../assets/img/Vector (1).svg'
 import logout from '../../../assets/img/Vector (2).svg'
 
-const Sidebar = () => {
+const SidebarMobile = () => {
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -20,10 +20,10 @@ const Sidebar = () => {
     }
 
     return (
-        <div className='d-md-none flex-column p-3 me-3 rounded mt-5 w-25 bg-white'>
+        <div className='d-md-none flex-column p-3 mx-5 rounded mt-5 bg-white h-100'>
             <div class="text-center d-flex flex-column align-items-center">
                 <img className='rounded-pill border-primary border border-2 p-1' src={pic} alt="" height='100' />
-                <Button className='btn-sign bg-white border-primary border rounded-3 p-2 text-primary mt-4 fw-bolder'>
+                <Button className='w-50 bg-white border-primary border rounded-3 p-2 text-primary mt-4 fw-bolder'>
                     Select Photo
                 </Button>
                 <p className='mt-4 fw-bolder mb-0 fs-5'>Mike</p>
@@ -72,4 +72,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default SidebarMobile
