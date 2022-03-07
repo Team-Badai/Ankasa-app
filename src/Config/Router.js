@@ -9,12 +9,13 @@ import BookingDetail from "../Pages/Main/BookingDetail"
 import Chat from "../Pages/Main/Chat";
 import Notification from "../Pages/Main/Notification";
 import Profile from "../Pages/Main/Profile";
+import SearchPage from "../Pages/Main/SearchFlight";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={"/auth"} element={<Auth />}>
+        <Route path={"/auth"} element={<Auth/>}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="resetpass" element={<ResetPassword />} />
@@ -25,6 +26,7 @@ const Router = () => {
           <Route path="profile" element={<Profile/>}/>
           <Route path="chat" element={<Chat/>}/>
           <Route path="notification" element={<Notification/>}/>
+          <Route path="search-result" element={<SearchPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
