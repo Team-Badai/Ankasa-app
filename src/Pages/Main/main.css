@@ -17,71 +17,37 @@
 }
 
 .board {
+    margin-top: 8px;
+    margin-bottom: 8px;
     border-right: 2px dashed #D7D7D7;
 }
 
+.board2 {
+    border-bottom: 2px dashed #D7D7D7;
+}
+
+.navbtn:active {
+    font-weight: bold;
+    border-bottom: 2px double black;
+}
+
 .barcode {
-    height: 4em;
-    transform: rotate(90deg);
-    box-shadow: 1px 0 0 1px black,
-    5px 0 0 1px black,
-    10px 0 0 1px  black,
-    11px 0 0 1px  black,
-    15px 0 0 1px  black,
-    18px 0 0 1px  black,
-    22px 0 0 1px  black,
-    23px 0 0 1px  black,
-    26px 0 0 1px  black,
-    30px 0 0 1px  black,
-    35px 0 0 1px  black,
-    37px 0 0 1px  black,
-    41px 0 0 1px  black,
-    44px 0 0 1px  black,
-    47px 0 0 1px  black,
-    51px 0 0 1px  black,
-    56px 0 0 1px  black,
-    59px 0 0 1px  black,
-    64px 0 0 1px  black,
-    68px 0 0 1px  black,
-    72px 0 0 1px  black,
-    74px 0 0 1px  black,
-    77px 0 0 1px  black,
-    81px 0 0 1px  black;
-  }
+    transform: rotate(-90deg);
+    height: 50px!important;
+    margin-top: 150px;
+}
 
 .ticket {
     height: 55vh;
     width: 57vw;
 }
 
-.ticket-right {
-    height: 55vh;
-    width: 55vw;
-    position: relative;
-    border: 2px solid white;
-    background: rgb(126, 62, 62);
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 1em 2em;
-    width: 6.5em;
-    border-left: .18em dashed #fff;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+.left-one {
+    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at 25.4% 0 , rgba(0,0,0,0) .2em, #D7D7D7 .4em, white .1em);
 }
-.ticket-right:before,
-.ticket-right:after{
-    content: "";
-    position: absolute;
-    display: block;
-    width: .9em;
-    height: .9em;
-    background: #fff;
-    border-radius: 50%;
-    left: -.5em;
-}
-.ticket-right:before {
-    top: -.4em;
-}
-.ticket:after {
-    bottom: -.4em;
+
+.right-one {
+    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at 25% 0 , rgba(0,0,0,0) .2em, #D7D7D7 .4em, white .1em);
 }

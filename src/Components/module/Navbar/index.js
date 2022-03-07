@@ -24,7 +24,6 @@ const Navbar = () => {
             setSearchParams({ search: e.target.value });
         }
     };
-    
 
     return (
         <div className='navbar d-flex justify-content-around p-5 shadow-sm'>
@@ -43,8 +42,8 @@ const Navbar = () => {
                         onKeyUp={handleSearch}
                     ></Input>
                 </form>
-                <span className='mx-5 mt-3 cursor'>Find Ticket</span>
-                <span className='mt-3 cursor' onClick={() => { navigate('/main/booking') }}>My Booking</span>
+                <span className='mx-5 mt-3 cursor navbtn'>Find Ticket</span>
+                <span className='mt-3 cursor navbtn' onClick={() => { navigate('/main/booking') }}>My Booking</span>
             </div>
             {auth === '1' ? (
                 <div className='d-md-block d-none'>
