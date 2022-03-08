@@ -1,0 +1,66 @@
+a {
+  text-decoration: none;
+}
+.logo-brand:hover {
+  cursor: pointer;
+}
+.navbar-icons:hover,
+.navbar-menu:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+.navbar-menu:hover::after {
+  content: " ";
+  height: 2px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: #2395ff;
+  padding: 0.15em;
+  position: absolute;
+  top: 62%;
+  margin-left: -3.75em;
+  transition: 0.5s;
+}
+.navbar-icons:hover::after {
+  content: " ";
+  height: 1px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: #2395ff;
+  padding: 0.09em;
+  position: absolute;
+  top: 62%;
+  margin-left: -1.1em;
+  transition: 0.5s;
+}
+.navbar-menu {
+  color: #414141;
+}
+.navbar-icons {
+  font-size: 1.8em;
+  color: #595959;
+}
+.active {
+  font-weight: bold;
+}
+
+.active-nav {
+  position: absolute;
+  top: 62%;
+  margin-left: 1.5em;
+  padding: 0.15em;
+  border-radius: 2px;
+  background-color: #2395ff;
+  width: 35px;
+  height: 2px;
+}
+.active-nav-icons {
+  position: absolute;
+  top: 62%;
+  margin-left: -1.1em;
+  padding: 0.09em;
+  border-radius: 2px;
+  background-color: #2395ff;
+  width: 35px;
+  height: 2px;
+}
