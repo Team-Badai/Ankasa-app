@@ -13,6 +13,7 @@ import FilterBox from "../../../Components/module/FilterBox";
 const SearchPage = () => {
     const [selectedIdFlight, setSelectedIdFlight] = useState('')
     const listFlights = useSelector((state) => state.FetchSearchFlights)
+    const flightsData = listFlights.data;
     const navigate = useNavigate();
     const { state } = useLocation();
     return (
@@ -51,7 +52,7 @@ const SearchPage = () => {
                         </div>
                         <div className={`${style['combine-side']} d-flex flex-fill flex-column ms-3`}>
                             {
-                                listFlights.map((flight, index) => {
+                                flightsData.map((flight, index) => {
                                     return <Card key={index} id_flights={flight.id} airline_name={flight.airline_name}
                                     origin_city={flight.origin_city} destination_city={flight.destination_city}
                                     departure_time={flight.departure_time} arrival_time={flight.arrival_time}

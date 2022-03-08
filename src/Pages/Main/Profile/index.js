@@ -25,12 +25,12 @@ const Profile = () => {
     post_code: ""
   });
 
-  const {data} = useSelector((state)=> state.getProfile)
-  // console.log("INI data profile",data);
+  const data = useSelector((state) => state.getProfile);
+  // console.log("INI data profile", data);
 
-  useEffect(()=>{
-    dispatch(getProfile())
-  },[dispatch])
+  useEffect(() => {
+    dispatch(getProfile());
+  }, [dispatch]);
 
   const handleChange = (e) => {
     setForm({

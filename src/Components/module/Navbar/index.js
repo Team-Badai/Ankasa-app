@@ -23,6 +23,9 @@ import ModalSearchFlight from "../ModalSearchFlight";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const splitLocation = pathname.split("/");
+
   const token = localStorage.getItem("token");
   const [searchParams, setSearchParams] = useSearchParams();
   const querySearch = searchParams.get("search");
@@ -69,13 +72,33 @@ const Navbar = () => {
             onClick={handleModalSearchFlight}
             className="nav-item ms-5 d-flex flex-column"
           >
-            <p className="mt-3 mb-0 navbar-menu ">Find Ticket</p>
-            {/* <span className="active-nav"></span> */}
+            <p
+              className={
+                pathname === "/main/search-result"
+                  ? "mt-3 mb-0 navbar-menu active"
+                  : "mt-3 mb-0 navbar-menu "
+              }
+            >
+              Find Ticket
+            </p>
+            {pathname === "/main/search-result" ? (
+              <span className="active-nav"></span>
+            ) : null}
           </div>
           <Link to={"/main/booking"}>
             <div className="nav-item ms-5 d-flex flex-column">
-              <p className="mt-3 mb-0 navbar-menu">My Booking</p>
-              {/* <span className="active-nav"></span> */}
+              <p
+                className={
+                  splitLocation[2] === "booking"
+                    ? "mt-3 mb-0 navbar-menu active"
+                    : "mt-3 mb-0 navbar-menu "
+                }
+              >
+                My Booking
+              </p>
+              {splitLocation[2] === "booking" ? (
+                <span className="active-nav"></span>
+              ) : null}
             </div>
           </Link>
         </div>
@@ -85,13 +108,17 @@ const Navbar = () => {
               <Link to={"/main/chat"}>
                 <div className="navbar-icons me-5">
                   <BiIcons.BiEnvelope className="chat-icon " />
-                  {/* <span className="active-nav-icons"></span> */}
+                  {splitLocation[2] === "chat" ? (
+                    <span className="active-nav-icons"></span>
+                  ) : null}
                 </div>
               </Link>
               <Link to={"/main/notification"}>
                 <div className="navbar-icons me-5">
                   <BiIcons.BiBell className="notif-icon" />
-                  {/* <span className="active-nav-icons"></span> */}
+                  {splitLocation[2] === "notification" ? (
+                    <span className="active-nav-icons"></span>
+                  ) : null}
                 </div>
               </Link>
               <Link to={"/main/profile"}>
