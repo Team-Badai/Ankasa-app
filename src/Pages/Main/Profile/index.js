@@ -8,7 +8,7 @@ import Navbar from "../../../Components/module/Navbar";
 import SidebarMobile from "../../../Components/module/SidebarMobile";
 import Sidebar from "../../../Components/module/Sidebar";
 import { useDispatch } from 'react-redux'
-import { updateProfile } from "../../../redux/actions/updateProfile";
+import { updateProfile } from "../../../Redux/actions/updateProfile";
 
 const Profile = () => {
   const navigate = useNavigate()
