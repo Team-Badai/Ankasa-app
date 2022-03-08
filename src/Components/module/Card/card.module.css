@@ -20,11 +20,25 @@
     height: 20%;
 }
 
+.font-12 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;color: #6B6B6B;
+}
+
 .font-16 {
     font-style: normal;
     font-size: 16px;
     line-height: 24px;
     font-family: 'Poppins', sans-serif;
+}
+
+.font-24 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 22px;
 }
 
 .primary {
@@ -33,4 +47,8 @@
 
 .bold {
     font-weight: 600;
+}
+
+.grey {
+    color: #979797;;
 }

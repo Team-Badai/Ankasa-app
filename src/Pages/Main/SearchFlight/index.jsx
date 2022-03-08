@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
-
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import style from './flight.module.css'
 
 // components
@@ -11,6 +11,10 @@ import Card from "../../../Components/module/Card";
 import FilterBox from "../../../Components/module/FilterBox";
 
 const SearchPage = () => {
+    const [selectedIdFlight, setSelectedIdFlight] = useState('')
+    const listFlights = useSelector((state) => state.FetchSearchFlights)
+    const navigate = useNavigate();
+    const { state } = useLocation();
     return (
         <div className={`${style.main} d-flex flex-column`}>
             <Navbar />
@@ -46,7 +50,23 @@ const SearchPage = () => {
                             <FilterBox/>
                         </div>
                         <div className={`${style['combine-side']} d-flex flex-fill flex-column ms-3`}>
-                            <Card />
+                            {
+                                listFlights.map((flight, index) => {
+                                    return <Card key={index} id_flights={flight.id} airline_name={flight.airline_name}
+                                    origin_city={flight.origin_city} destination_city={flight.destination_city}
+                                    departure_time={flight.departure_time} arrival_time={flight.arrival_time}
+                                    duration_time={flight.flight_duration} luggage={flight.luggage} meal={flight.meal}
+                                    wifi={flight.wifi} transit={flight.transit_type} price={flight.price}
+                                    handleClick={() => {
+                                        const selectedFlight = {
+                                            id_flights : flight.id,
+                                            total_seats : state.total_passenger,
+                                            class_type : state.flight_class,
+                                        }
+                                        navigate('/create-booking', { state: selectedFlight })
+                                    }} />
+                                })
+                            }
                         </div>
                     </div>
                 </div>
