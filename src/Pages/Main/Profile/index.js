@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import btnback from "../../../assets/img/btnback.svg";
 import Button from "../../../Components/Button";
@@ -8,8 +8,9 @@ import Footer from "../../../Components/module/Footer";
 import Navbar from "../../../Components/module/Navbar";
 import SidebarMobile from "../../../Components/module/SidebarMobile";
 import Sidebar from "../../../Components/module/Sidebar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../../../Redux/actions/main/updateProfile";
+import { getProfile } from "../../../Redux/actions/main/profile";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -23,6 +24,13 @@ const Profile = () => {
     address: "",
     post_code: ""
   });
+
+  const {data} = useSelector((state)=> state.getProfile)
+  // console.log("INI data profile",data);
+
+  useEffect(()=>{
+    dispatch(getProfile())
+  },[dispatch])
 
   const handleChange = (e) => {
     setForm({
@@ -39,7 +47,7 @@ const Profile = () => {
     <div className="d-flex flex-column wrapper-home">
       <Navbar></Navbar>
       <SidebarMobile></SidebarMobile>
-      <main class="bg-light d-none d-md-block">
+      <main className="bg-light d-none d-md-block">
         <div className="profile d-flex mb-5 mx-5">
           <Sidebar></Sidebar>
           <div className="mt-5 ms-2 content-profile">
@@ -52,11 +60,12 @@ const Profile = () => {
                   <div className="mb-4 input-contact">
                     <label className="ms-1 txt-label">Email</label>
                     <Input
-                      type="email"
                       className="input-profile"
+                      type="email"
                       name="email"
                       value={form.email}
                       onChange={handleChange}
+                      placeholder={data ? data.email : "-"}
                     />
                   </div>
                   <label className="ms-1 txt-label">Phone Number</label>
@@ -64,8 +73,9 @@ const Profile = () => {
                     type="number"
                     className="input-profile"
                     name="phone_number"
-                    value={form.notphone_numberes}
+                    value={form.phone_number}
                     onChange={handleChange}
+                    placeholder={data ? data.phone_number : "-"}
                   />
                 </form>
                 <div className="link-txt">
@@ -85,6 +95,7 @@ const Profile = () => {
                       name="username"
                       value={form.username}
                       onChange={handleChange}
+                      placeholder={data ? data.fullname : ""}
                     />
                   </div>
                   <div className="mb-4 input-contact">
@@ -94,6 +105,7 @@ const Profile = () => {
                       name="city"
                       value={form.city}
                       onChange={handleChange}
+                      placeholder={data ? data.city : ""}
                     />
                   </div>
                   <div className="mb-4 input-contact">
@@ -103,6 +115,7 @@ const Profile = () => {
                       name="address"
                       value={form.address}
                       onChange={handleChange}
+                      placeholder={data ? data.address : ""}
                     />
                   </div>
                   <div className="input-contact">
@@ -112,6 +125,7 @@ const Profile = () => {
                       name="post_code"
                       value={form.post_code}
                       onChange={handleChange}
+                      placeholder={data ? data.post_code : "-"}
                     />
                   </div>
                 </form>
