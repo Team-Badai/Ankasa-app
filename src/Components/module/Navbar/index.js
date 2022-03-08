@@ -23,7 +23,7 @@ import ModalSearchFlight from "../ModalSearchFlight";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const auth = localStorage.getItem("auth");
+  const token = localStorage.getItem("token");
   const [searchParams, setSearchParams] = useSearchParams();
   const querySearch = searchParams.get("search");
 
@@ -41,15 +41,15 @@ const Navbar = () => {
   };
 
   // temp function
-  const [click, setClick] = useState(false);
-  const hanldeClick = () => {
-    setClick(!click);
-  };
+  // const [click, setClick] = useState(false);
+  // const hanldeClick = () => {
+  //   setClick(!click);
+  // };
 
   return (
     <Fragment>
       <div className="navbar d-flex justify-content-around p-5 ">
-        <div onClick={hanldeClick} className="logo-brand">
+        <div onClick={indexPage} className="logo-brand">
           <img src={logo} alt="Ankasa" />
           <span className="ms-3 fs-5 fw-bolder">Ankasa</span>
         </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
-        {click ? (
+        {token ? (
           <div className="d-md-block d-none">
             <div className="d-flex">
               <Link to={"/main/chat"}>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Fragment, useState } from "react";
 import * as IoIosIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
@@ -8,7 +9,14 @@ import Button from "../../Button";
 import Input from "../../Input";
 import "./modalsearchflight.css";
 
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { SearchFlights } from "../../../Redux/actions/main/searchFlights";
+
 const ModalSearchFlight = () => {
+  const dispatch = useDispatch();
+  const searchFightsData = useSelector((state) => state.FetchSearchFlights);
+
   const [journeys, setJourneys] = useState("");
   const [flightClass, setFlightClass] = useState("");
   const [form, setForm] = useState({
@@ -17,12 +25,13 @@ const ModalSearchFlight = () => {
     departure_date: "",
     total_passenger: ""
   });
-  const searchFlightData = {
+  const totalPassenger = parseInt(form.total_passenger);
+  const searchFlightForm = {
     origin_city: form.origin_city,
     destination_city: form.destination_city,
     journey: journeys,
     departure_date: form.departure_date,
-    total_passenger: form.total_passenger,
+    total_passenger: totalPassenger,
     flight_class: flightClass
   };
 
@@ -48,8 +57,10 @@ const ModalSearchFlight = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(searchFlightData);
+    dispatch(SearchFlights(searchFlightForm));
+    console.log(searchFlightForm);
   };
+
   return (
     <Fragment>
       <div className="modal-search-flight-container animation-pull-down">

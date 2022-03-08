@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_ANKASA_API
+    baseURL: process.env.REACT_APP_URL_BACKEND
 })
 
 export const AuthLoginRequest = () => {
@@ -25,7 +25,7 @@ export const AuthLoginFailed = (error) => {
 export const AuthLogin = (data) => {
   return (dispatch) => {
     dispatch(AuthLoginRequest());
-            return api.post('/users/login', data.form)
+            return api.post('users/login', data.form)
       .then((res) => {
         const data = res.data.data;
         const token = data.token;
