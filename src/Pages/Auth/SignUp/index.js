@@ -15,7 +15,7 @@ const SignUp = () => {
     fullname: "",
     email: "",
     password: "",
-    requisite: "",
+    requisite: ""
   });
 
   const FormAddUser = new FormData();
@@ -28,14 +28,14 @@ const SignUp = () => {
   const [checked, setChecked] = useState("");
 
   const handleCheckbox = (e) => {
-    console.log("CHECKED",e.target.value);
-    setChecked(e.target.value)
+    console.log("CHECKED", e.target.value);
+    setChecked(e.target.value);
   };
 
   const handleChange = (e) => {
     setFrom({
       ...form,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
@@ -52,14 +52,18 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(AuthSignUp({ form }));
-    console.log("ISI FORM",form);
+    console.log("ISI FORM", form);
+  };
+
+  const toIndexPage = () => {
+    navigate("/");
   };
 
   return (
     <Fragment>
       <section className="row col-xl-4 right-section p-xl-5">
         <div className="form">
-          <div className="header">
+          <div onClick={toIndexPage} className="header">
             <img src={Logo} alt="" />
           </div>
           <div className="content">
@@ -106,17 +110,17 @@ const SignUp = () => {
                 Sign Up
               </Button>
             </form>
-            <div className="bot-action my-3">                
-            <Input
-                  onChange={handleCheckbox}
-                  value='Accept terms and condition'
-                  name="checked"
-                  className="input-check me-2 mt-2"
-                  checked={checked === "Accept terms and condition"}
-                  type="checkbox"
-                  id="checked"
-                />
-                <label>Accept terms and condition</label>
+            <div className="bot-action my-3">
+              <Input
+                onChange={handleCheckbox}
+                value="Accept terms and condition"
+                name="checked"
+                className="input-check me-2 mt-2"
+                checked={checked === "Accept terms and condition"}
+                type="checkbox"
+                id="checked"
+              />
+              <label>Accept terms and condition</label>
             </div>
             <hr size="4" />
             <p>Already have an account?</p>

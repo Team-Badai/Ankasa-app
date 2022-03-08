@@ -20,7 +20,7 @@ export const SearchFlightsFail = (error) => {
   };
 };
 
-export const SearchFlights = (searchFlightForm) => {
+export const SearchFlights = ({ searchFlightForm, toResultPage }) => {
   return (dispatch) => {
     dispatch(SearchFlightsRequest());
     return axios
@@ -34,8 +34,8 @@ export const SearchFlights = (searchFlightForm) => {
       })
       .then((res) => {
         const data = res.data?.data;
-        console.log(data);
         dispatch(SearchFlightsSuccess(data));
+        toResultPage();
       })
       .catch((err) => {
         const message = err.response;

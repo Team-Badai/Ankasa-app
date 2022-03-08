@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as BsIcons from "react-icons/bs";
 import Logo from "../../../assets/img/Logo2.svg";
@@ -11,9 +11,10 @@ import "./login.css";
 import { AuthLogin } from "../../../Redux/actions/Auth/authLogin";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [form, setFrom] = useState({
     email: "",
-    password: "",
+    password: ""
   });
 
   // const {loading } = useSelector((state) => state.AuthLogin)
@@ -26,28 +27,30 @@ const Login = () => {
   const handleChange = (e) => {
     setFrom({
       ...form,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
   // console.log("Ini FORM", form);
 
   const handleClick = () => {
-    dispatch(AuthLogin({
-      form
-    }))
-  }
+    dispatch(AuthLogin({ form, navigate }));
+  };
+
 
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowPassword = () => {
     setShowPassword(showPassword ? false : true);
   };
+  const toIndexPage = () => {
+    navigate("/");
+  };
   return (
     <Fragment>
       <section className="row col-xl-4 right-section p-xl-5">
         <div className="form">
-          <div className="header">
+          <div onClick={toIndexPage} className="header">
             <img src={Logo} alt="" />
           </div>
           <div className="content">
@@ -70,7 +73,7 @@ const Login = () => {
                 value={form.password}
               />
               {showPassword ? (
-                < BsIcons.BsEye
+                <BsIcons.BsEye
                   onClick={handleShowPassword}
                   className="form-icons bi-eye-slash position-absolute mt-5"
                 />
@@ -81,7 +84,9 @@ const Login = () => {
                 />
               )}
             </div>
-            <Button className="btn-login mt-5" onClick={handleClick}>Sign In</Button>
+            <Button className="btn-login mt-5" onClick={handleClick}>
+              Sign In
+            </Button>
             <p className="mt-3">Did you forgot your password?</p>
             <Link to="/auth/resetpass">Tap here for reset</Link>
             <hr size="4" />
