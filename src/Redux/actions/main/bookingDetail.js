@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const token = localStorage.getItem()
+const token = JSON.parse(localStorage.getItem("token"));
 
 export const getBookingDetailRequest = () => {
     return {
@@ -26,9 +26,10 @@ export const getBookingDetail = (id) => {
     return (dispatch) => {
         dispatch(getBookingDetailRequest())
         return axios({
-            method: 'GET',
-            url: `${process.env.REACT_APP_URL_BACKEND}BookingDetail/${id}`,
-            headers: {Authorization: `Bearer ${token}`}
+            method: 'POST',
+            url: `${process.env.REACT_APP_URL_BACKEND}bookings/list-tickets`,
+            headers: {Authorization: `Bearer ${token}`},
+            data: {id_bookings: id}
         }).then((res) => {
             const data = res.data?.data
             dispatch(getBookingDetailSuccess(data))

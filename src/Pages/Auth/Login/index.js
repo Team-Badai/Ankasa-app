@@ -32,7 +32,7 @@ const Login = () => {
 
   // console.log("Ini FORM", form);
 
-  const handleClick = () =>{
+  const handleClick = () => {
     dispatch(AuthLogin({
       form
     }))

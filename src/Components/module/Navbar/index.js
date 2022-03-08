@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import {
   useSearchParams,
   useNavigate,
@@ -19,6 +20,8 @@ import Button from "../../../Components/Button";
 import "../../../Pages/Main/main.css";
 import "./navbar.css";
 import ModalSearchFlight from "../ModalSearchFlight";
+import { useDispatch, useSelector } from 'react-redux'
+import { getUser } from '../../../Redux/actions/main/user'
 // import useDropdownMenu from 'react-accessible-dropdown-menu-hook';
 
 const Navbar = () => {
@@ -45,6 +48,15 @@ const Navbar = () => {
   // const hanldeClick = () => {
   //   setClick(!click);
   // };
+
+  const dispatch = useDispatch()
+
+  const data = useSelector((state) => state.FetchUser)
+  console.log(data.data.profile_picture)
+
+  useEffect(() => {
+    dispatch(getUser())
+  }, [])
 
   return (
     <Fragment>
@@ -97,8 +109,9 @@ const Navbar = () => {
               <Link to={"/main/profile"}>
                 <img
                   className="profile-icon rounded-pill border border-primary border-2 p-1"
-                  src={pic}
+                  src={data.data.profile_picture}
                   alt="Profile"
+                  height='55'
                 />
               </Link>
             </div>
