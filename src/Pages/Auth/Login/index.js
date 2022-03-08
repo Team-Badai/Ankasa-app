@@ -9,6 +9,7 @@ import Button from "../../../Components/Button";
 import Input from "../../../Components/Input";
 import "./login.css";
 import { AuthLogin } from "../../../Redux/actions/Auth/authLogin";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [form, setFrom] = useState({
@@ -31,11 +32,13 @@ const Login = () => {
   };
 
   // console.log("Ini FORM", form);
+  const navigate = useNavigate()
 
   const handleClick = () => {
     dispatch(AuthLogin({
       form
     }))
+    navigate('/')
   }
 
   const [showPassword, setShowPassword] = useState(false);
