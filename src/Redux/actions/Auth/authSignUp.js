@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_ANKASA_API
+    baseURL: process.env.REACT_APP_URL_BACKEND
 })
 
 export const AuthSignUpRequest = () => {

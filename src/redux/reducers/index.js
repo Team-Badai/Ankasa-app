@@ -1,22 +1,25 @@
-import { combineReducers } from "redux"
+import { combineReducers } from "redux";
 
 //------- import reducers
 import AuthSignUp from "./auth/authSignUp";
 import AuthLogin from "./auth/authLogin";
-import Booking from './main/booking'
-import BookingDetail from './main/bookingDetail'
-import UpdateProfile from "./main/updateProfile"
-import ChangePicture from './main/changePicture'
-import User from './main/user'
+import FetchProfilePicture from "./main/changePicture";
+import FetchBooking from "./main/booking";
+import FetchBookingDetail from "./main/bookingDetail";
+import FetchUpdateProfile from "./main/updateProfile";
+import FetchSearchFlights from "./main/searchFlights";
+import FetchUser from "./main/user";
 
 const rootReducers = combineReducers({
-    AuthSignUp,
-    AuthLogin,
-    Booking,
-    BookingDetail,
-    UpdateProfile,
-    ChangePicture,
-    User
-})
+  AuthSignUp,
+  AuthLogin,
+  FetchBooking,
+  FetchBookingDetail,
+  FetchProfilePicture,
+  FetchUpdateProfile,
+  FetchSearchFlights,
+  FetchUser
+});
 
-export default rootReducers
+export default rootReducers;
+

@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getFlights } from '../../../Redux/actions/main/booking'
 
 const Booking = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const data = useSelector((state) => state.Booking)
   console.log(data.data)
@@ -20,14 +20,16 @@ const Booking = () => {
   }, [])
 
   return (
-    <div className='d-flex flex-column'>
+    <div className="d-flex flex-column">
       <Navbar></Navbar>
       {/* Responsive */}
       <section class="container bg-white p-4 ms-2 mt-4 rounded d-md-none">
-        <p className='fw-bold text-primary'>M Y <span className='ms-2'>B O O K I N G</span></p>
-        <div className='d-flex justify-content-between'>
-          <span className='fw-bold fs-5'>My Booking</span>
-          <span className='text-primary fw-bold'>Order History</span>
+        <p className="fw-bold text-primary">
+          M Y <span className="ms-2">B O O K I N G</span>
+        </p>
+        <div className="d-flex justify-content-between">
+          <span className="fw-bold fs-5">My Booking</span>
+          <span className="text-primary fw-bold">Order History</span>
         </div>
       </section>
       {data.data.map((item) => {
@@ -54,10 +56,12 @@ const Booking = () => {
           <Sidebar></Sidebar>
           <div class="mt-5 d-flex flex-column flex-fill">
             <section class="container bg-white p-4 ms-2 rounded d-md-block">
-              <p className='fw-bold text-primary'>M Y <span className='ms-2'>B O O K I N G</span></p>
-              <div className='d-flex justify-content-between'>
-                <span className='fw-bold fs-5'>My Booking</span>
-                <span className='text-primary fw-bold'>Order History</span>
+              <p className="fw-bold text-primary">
+                M Y <span className="ms-2">B O O K I N G</span>
+              </p>
+              <div className="d-flex justify-content-between">
+                <span className="fw-bold fs-5">My Booking</span>
+                <span className="text-primary fw-bold">Order History</span>
               </div>
             </section>
             {data.data.map((item) => {
@@ -85,7 +89,7 @@ const Booking = () => {
       </main>
       <Footer></Footer>
     </div>
-  )
-}
+  );
+};
 
-export default Booking
+export default Booking;
