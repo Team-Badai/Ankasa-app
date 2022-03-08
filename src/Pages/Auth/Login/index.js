@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import * as BsIcons from "react-icons/bs";
 import Logo from "../../../assets/img/Logo2.svg";
 import Google from "../../../assets/img/btnGoogle.svg";
@@ -7,12 +8,20 @@ import FB from "../../../assets/img/btnFacebook.svg";
 import Button from "../../../Components/Button";
 import Input from "../../../Components/Input";
 import "./login.css";
+import { AuthLogin } from "../../../Redux/actions/Auth/authLogin";
 
 const Login = () => {
   const [form, setFrom] = useState({
-    username: "",
+    email: "",
     password: "",
   });
+
+  const {loading } = useSelector((state) => state.AuthLogin)
+  const dispatch = useDispatch();
+
+  const FormAddUser = new FormData();
+  FormAddUser.append("email", form.email);
+  FormAddUser.append("password", form.password);
 
   const handleChange = (e) => {
     setFrom({
@@ -20,6 +29,14 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  // console.log("Ini FORM", form);
+
+  const handleClick = () =>{
+    dispatch(AuthLogin({
+      form
+    }))
+  }
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -37,11 +54,11 @@ const Login = () => {
             <p className="title">Login</p>
             <Input
               className="input-login"
-              placeholder="Username"
-              type="text"
-              name="username"
+              placeholder="Email"
+              type="email"
+              name="email"
               onChange={handleChange}
-              value={form.username}
+              value={form.email}
             />
             <div>
               <Input
@@ -64,7 +81,7 @@ const Login = () => {
                 />
               )}
             </div>
-            <Button className="btn-login mt-5">Sign In</Button>
+            <Button className="btn-login mt-5" onClick={handleClick}>Sign In</Button>
             <p className="mt-3">Did you forgot your password?</p>
             <Link to="/auth/resetpass">Tap here for reset</Link>
             <hr size="4" />

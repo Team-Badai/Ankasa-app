@@ -69,10 +69,11 @@ input[type="checkbox"] {
 }
 
 .bi-eye-slash {
-  /* top: 0.8em; */
-  margin-top: 3.5vh;
-  right: 4.5em;
+  right: 90px;
 }
+/* .eye-signup{
+
+} */
 
 /* Styling for mobile layout */
 
