@@ -40,7 +40,7 @@ const Profile = () => {
   };
 
   const handleContinue = () => {
-    dispatch(updateProfile({ form }));
+    dispatch(updateProfile( form ));
   };
 
   return (
@@ -92,8 +92,8 @@ const Profile = () => {
                     <label className="ms-1 txt-label">Username</label>
                     <Input
                       className="input-profile"
-                      name="username"
-                      value={form.username}
+                      name="fullname"
+                      value={form.fullname}
                       onChange={handleChange}
                       placeholder={data ? data.fullname : ""}
                     />
