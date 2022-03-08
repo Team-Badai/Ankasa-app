@@ -11,7 +11,7 @@ import { getBookingDetail } from '../../../Redux/actions/main/bookingDetail'
 const BookingDetail = () => {
     const dispatch = useDispatch()
 
-    const data = useSelector((state) => state.BookingDetail)
+    const data = useSelector((state) => state.FetchBookingDetail)
     const id = 'af06841c-11d2-4f62-8193-31b872705a26'
 
     useEffect(() => {

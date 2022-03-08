@@ -22,7 +22,7 @@ const Sidebar = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const data = useSelector((state) => state.User)
+    const data = useSelector((state) => state.FetchUser)
     console.log(data)
   
     useEffect(() => {
@@ -46,6 +46,7 @@ const Sidebar = () => {
         formData.append('profile_picture', form.profile_picture)
         dispatch(changePicture(formData))
         console.log(form);
+        navigate('/')
     }
 
     const [modalPic, setModalPic] = useState(false)

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1YW50b21iZW5nQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwic3RhdHVzIjoxLCJpYXQiOjE2NDY3NzI0NTEsImV4cCI6MTY0Njc3NjA1MSwiaXNzIjoiYW5rYXNhIn0.gBRT0R7RnV4Q_w_SgiJJVOW0EsV1GncO40W2whB8qls'
+const token = JSON.parse(localStorage.getItem("token"));
 
 export const getUserRequest = () => {
     return {

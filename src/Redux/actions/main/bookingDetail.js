@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1YW50b21iZW5nQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwic3RhdHVzIjoxLCJpYXQiOjE2NDY3NjkzNjgsImV4cCI6MTY0Njc3Mjk2OCwiaXNzIjoiYW5rYXNhIn0.vVXhzdH1CFSSEr_UZfwdkzC9Zx7WeTzDe_0sv8jFxsk'
+const token = JSON.parse(localStorage.getItem("token"));
 
 export const getBookingDetailRequest = () => {
     return {

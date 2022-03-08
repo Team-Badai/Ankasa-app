@@ -12,7 +12,7 @@ const Booking = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const data = useSelector((state) => state.Booking)
+  const data = useSelector((state) => state.FetchBooking)
   console.log(data.data)
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const Booking = () => {
                 <span className="text-primary fw-bold">Order History</span>
               </div>
             </section>
-            {data.data.map((item) => {
+            {data?.data.map((item) => {
               return (
                 <section class="container bg-white p-4 ms-2 rounded mt-4">
                   <p class="">{item.booking_details[0].created_at}</p>
