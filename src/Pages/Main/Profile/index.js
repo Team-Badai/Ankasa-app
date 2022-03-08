@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import btnback from "../../../assets/img/btnback.svg"
@@ -31,7 +32,8 @@ const Profile = () => {
   }
 
   const handleContinue = () => {
-    dispatch(updateProfile({form}))
+    dispatch(updateProfile(form))
+    navigate('/')
   }
 
   return (
@@ -53,7 +55,7 @@ const Profile = () => {
                     <Input type="email" className="input-profile" name="email" value={form.email} onChange={handleChange}/>
                   </div>
                   <label className="ms-1 txt-label">Phone Number</label>
-                  <Input type="number" className="input-profile" name="phone_number" value={form.notphone_numberes} onChange={handleChange}/>
+                  <Input type="number" className="input-profile" name="phone_number" value={form.phone_number} onChange={handleChange}/>
                 </form>
                 <div className="link-txt">
                   <Link to="" className="link-txt me-4">
@@ -67,7 +69,7 @@ const Profile = () => {
                 <form className="ms-2">
                   <div className="mb-4 input-contact">
                     <label className="ms-1 txt-label">Username</label>
-                    <Input className="input-profile" name="username" value={form.username} onChange={handleChange}/>
+                    <Input className="input-profile" name="fullname" value={form.fullname} onChange={handleChange}/>
                   </div>
                   <div className="mb-4 input-contact">
                     <label className="ms-1 txt-label">City</label>

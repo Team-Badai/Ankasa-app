@@ -16,7 +16,7 @@ const Login = () => {
     password: "",
   });
 
-  const {loading } = useSelector((state) => state.AuthLogin)
+  const { loading } = useSelector((state) => state.AuthLogin)
   const dispatch = useDispatch();
 
   const FormAddUser = new FormData();
@@ -32,7 +32,7 @@ const Login = () => {
 
   // console.log("Ini FORM", form);
 
-  const handleClick = () =>{
+  const handleClick = () => {
     dispatch(AuthLogin({
       form
     }))

@@ -1,15 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import pic from '../../../assets/img/nnzkZNYWHaU.svg'
+// import pic from '../../../assets/img/nnzkZNYWHaU.svg'
 import Button from '../../../Components/Button'
 import '../../../Pages/Main/main.css'
 import user from '../../../assets/img/user.svg'
 import review from '../../../assets/img/Vector.svg'
 import settings from '../../../assets/img/Vector (1).svg'
 import logout from '../../../assets/img/Vector (2).svg'
-import { useDispatch } from 'react-redux'
 import { changePicture } from '../../../Redux/actions/main/changePicture'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUser } from '../../../Redux/actions/main/user'
 
 const Sidebar = () => {
     const handleLogout = () => {
@@ -19,6 +21,13 @@ const Sidebar = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    const data = useSelector((state) => state.User)
+    console.log(data)
+  
+    useEffect(() => {
+      dispatch(getUser())
+    }, [])
 
     const [form, setForm] = useState({
         profile_picture: ''
@@ -35,7 +44,7 @@ const Sidebar = () => {
         e.preventDefault()
         const formData = new FormData()
         formData.append('profile_picture', form.profile_picture)
-        dispatch(changePicture({ formData, navigate }))
+        dispatch(changePicture(formData))
         console.log(form);
     }
 
@@ -52,12 +61,12 @@ const Sidebar = () => {
     return (
         <div className='d-none d-md-flex flex-column p-3 me-3 ms-5 rounded mt-5 w-25 bg-white'>
             <div class="text-center d-flex flex-column align-items-center">
-                <img className='rounded-pill border-primary border border-2 p-1' src={pic} alt="" height='100' />
+                <img className='rounded-pill border-primary border border-2 p-1' src={data.data.profile_picture} alt="" height='100' />
                 <Button className='btn-sign bg-white border-primary border rounded-3 p-2 text-primary mt-4 fw-bolder' onClick={() => openModal()}>
                     Select Photo
                 </Button>
-                <p className='mt-4 fw-bolder mb-0 fs-5'>Mike</p>
-                <span className='text-secondary'>Medan</span>
+                <p className='mt-4 fw-bolder mb-0 fs-5'>{data.data.fullname}</p>
+                <span className='text-secondary'>{data.data.address}</span>
             </div>
             <div class="d-flex flex-column mt-4">
                 <div className='d-flex justify-content-between'>

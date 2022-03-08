@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// const token = localStorage.getItem()
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1YW50b21iZW5nQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwic3RhdHVzIjoxLCJpYXQiOjE2NDY3Njg3NzcsImV4cCI6MTY0Njc3MjM3NywiaXNzIjoiYW5rYXNhIn0.rh3iYcMfamxkMIQ3AxW5-uWaX1AhNsDRa2XhEWW7bSk'
 
 export const getFlightsRequest = () => {
     return {
@@ -27,8 +27,8 @@ export const getFlights = () => {
         dispatch(getFlightsRequest())
         return axios({
             method: 'GET',
-            url: `${process.env.REACT_APP_URL_BACKEND}flights`,
-            // headers: {Authorization: `Bearer ${token}`}
+            url: `${process.env.REACT_APP_URL_BACKEND}bookings/my-booking`,
+            headers: {Authorization: `Bearer ${token}`}
         }).then((res) => {
             const data = res.data?.data
             dispatch(getFlightsSuccess(data))
