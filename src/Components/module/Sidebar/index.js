@@ -9,7 +9,7 @@ import review from '../../../assets/img/Vector.svg'
 import settings from '../../../assets/img/Vector (1).svg'
 import logout from '../../../assets/img/Vector (2).svg'
 import { useDispatch } from 'react-redux'
-import { changePicture } from '../../../redux/actions/changePicture'
+import { changePicture } from '../../../Redux/actions/main/changePicture'
 
 const Sidebar = () => {
     const handleLogout = () => {

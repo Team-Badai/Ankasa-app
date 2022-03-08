@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const token = localStorage.getItem()
+// const token = localStorage.getItem()
 
 export const getFlightsRequest = () => {
     return {
@@ -28,7 +28,7 @@ export const getFlights = () => {
         return axios({
             method: 'GET',
             url: `${process.env.REACT_APP_URL_BACKEND}flights`,
-            headers: {Authorization: `Bearer ${token}`}
+            // headers: {Authorization: `Bearer ${token}`}
         }).then((res) => {
             const data = res.data?.data
             dispatch(getFlightsSuccess(data))

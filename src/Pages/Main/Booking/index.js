@@ -5,7 +5,7 @@ import Footer from '../../../Components/module/Footer'
 import Sidebar from '../../../Components/module/Sidebar'
 import plane from '.././../../assets/img/plane.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { getFlights } from '../../../redux/actions/booking'
+import { getFlights } from '../../../Redux/actions/main/booking'
 
 const Booking = () => {
   const navigate = useNavigate()
