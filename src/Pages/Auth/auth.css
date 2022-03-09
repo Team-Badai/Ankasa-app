@@ -1,18 +1,16 @@
 .left-section {
-  flex: 2.5;
-  height: 100%;
+  /* flex: 2.5; */
+  width: 60%;
+  /* height: 100vh!important; */
   background: #2395ff;
 }
 
 .display-app {
-  transform: translate(125px, 50px);
+  margin: 4em 7em;
 }
 
 .auth-container {
   height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
   overflow: hidden !important;
 }
 
@@ -53,7 +51,7 @@ input[type="checkbox"] {
   font-size: 36px;
   line-height: 54px;
   color: #000000;
-  transform: translateX(-1vw);
+  /* transform: translateX(-1vw); */
 }
 
 .form {
@@ -70,10 +68,12 @@ input[type="checkbox"] {
 
 .bi-eye-slash {
   right: 90px;
+  margin-top: 45px;
 }
-/* .eye-signup{
-
-} */
+.eye-signup{
+  right: 90px;
+  margin-top: -30px;
+}
 
 /* Styling for mobile layout */
 

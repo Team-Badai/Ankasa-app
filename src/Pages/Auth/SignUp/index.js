@@ -63,7 +63,7 @@ const SignUp = () => {
             <img src={Logo} alt="" />
           </div>
           <div className="content">
-            <p className="title ms-xl-5">Register</p>
+            <p className="title my-3 mt-5">Register</p>
             <form onSubmit={handleSubmit}>
               <Input
                 className="input-login"
@@ -93,12 +93,12 @@ const SignUp = () => {
                 {showPassword ? (
                   <BsIcons.BsEye
                     onClick={handleShowPassword}
-                    className="form-icons bi-eye-slash position-absolute mt-4"
+                    className="form-icons eye-signup position-absolute"
                   />
                 ) : (
                   <BsIcons.BsEyeSlash
                     onClick={handleShowPassword}
-                    className="form-icons bi-eye-slash position-absolute mt-4"
+                    className="form-icons eye-signup position-absolute"
                   />
                 )}
               </div>
@@ -119,7 +119,7 @@ const SignUp = () => {
                 <label>Accept terms and condition</label>
             </div>
             <hr size="4" />
-            <p>Already have an account?</p>
+            <p className="text-center">Already have an account?</p>
             <Button className="btn-signin" onClick={handleClick}>
               Sign In
             </Button>
