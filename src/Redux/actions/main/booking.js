@@ -2,29 +2,29 @@ import axios from "axios";
 
 const token = JSON.parse(localStorage.getItem("token"));
 
-export const getFlightsRequest = () => {
+export const getMyBookingsRequest = () => {
   return {
-    type: "GET_FLIGHTS_REQUEST"
+    type: "GET_MY_BOOKINGS_REQUEST"
   };
 };
 
-export const getFlightsSuccess = (data) => {
+export const getMyBookingsSuccess = (data) => {
   return {
-    type: "GET_FLIGHTS_SUCCESS",
+    type: "GET_MY_BOOKINGS_SUCCESS",
     payload: data
   };
 };
 
-export const getFlightsFail = (error) => {
+export const getMyBookingsFail = (error) => {
   return {
-    type: "GET_FLIGHTS_FAIL",
+    type: "GET_MY_BOOKINGS_FAIL",
     payload: error
   };
 };
 
-export const getFlights = () => {
+export const getMyBookings = () => {
   return (dispatch) => {
-    dispatch(getFlightsRequest());
+    dispatch(getMyBookingsRequest());
     return axios({
       method: "GET",
       url: `${process.env.REACT_APP_URL_BACKEND}bookings/my-booking`,
@@ -32,12 +32,11 @@ export const getFlights = () => {
     })
       .then((res) => {
         const data = res.data?.data;
-        dispatch(getFlightsSuccess(data));
-        console.log(data);
+        dispatch(getMyBookingsSuccess(data));
       })
       .catch((err) => {
         const message = err.message;
-        dispatch(getFlightsFail(message));
+        dispatch(getMyBookingsFail(message));
       });
   };
 };
