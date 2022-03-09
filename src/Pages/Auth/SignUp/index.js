@@ -7,36 +7,35 @@ import Input from "../../../Components/Input";
 import "../auth.css";
 import { useDispatch } from "react-redux";
 import { AuthSignUp } from "../../../Redux/actions/Auth/authSignUp";
+import ModalSuccess from "../../../Components/module/ModalSuccess";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [openModalSuccess, setOpenModalSuccess] = useState(false);
+
+  const handleModalSuccess = () => {
+    setOpenModalSuccess(!openModalSuccess);
+  };
+  const [errorMessage, setErrorMessage] = useState("");
+  const [checked, setChecked] = useState("");
   const [form, setFrom] = useState({
     fullname: "",
     email: "",
-    password: "",
-    requisite: ""
+    password: ""
   });
 
-  const FormAddUser = new FormData();
-  FormAddUser.append("fullname", form.fullname);
-  FormAddUser.append("email", form.email);
-  FormAddUser.append("password", form.password);
-  FormAddUser.append("equisite", form.requisite);
-
-  const dispatch = useDispatch();
-  const [checked, setChecked] = useState("");
-
-  const handleCheckbox = (e) => {
-    console.log("CHECKED", e.target.value);
-    setChecked(e.target.value);
+  const signupData = {
+    fullname: form.fullname,
+    email: form.email,
+    password: form.password,
+    requisite: checked
   };
 
   const handleChange = (e) => {
-    setFrom({
-      ...form,
-      [e.target.name]: e.target.value
-    });
+    setFrom({ ...form, [e.target.name]: e.target.value });
+    setChecked(e.target.value);
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -51,8 +50,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(AuthSignUp({ form }));
-    console.log("ISI FORM", form);
+    dispatch(AuthSignUp({ signupData, handleModalSuccess, setErrorMessage }));
   };
 
   const toIndexPage = () => {
@@ -67,7 +65,7 @@ const SignUp = () => {
             <img src={Logo} alt="" />
           </div>
           <div className="content">
-            <p className="title ms-xl-5">Register</p>
+            <p className="title my-3 mt-5">Register</p>
             <form onSubmit={handleSubmit}>
               <Input
                 className="input-login"
@@ -97,22 +95,26 @@ const SignUp = () => {
                 {showPassword ? (
                   <BsIcons.BsEye
                     onClick={handleShowPassword}
-                    className="form-icons bi-eye-slash position-absolute mt-4"
+                    className="form-icons eye-signup position-absolute"
                   />
                 ) : (
                   <BsIcons.BsEyeSlash
                     onClick={handleShowPassword}
-                    className="form-icons bi-eye-slash position-absolute mt-4"
+                    className="form-icons eye-signup position-absolute"
                   />
                 )}
               </div>
+
+              {errorMessage ? (
+                <p className="text-error mb-0">{errorMessage}</p>
+              ) : null}
               <Button className="btn-login mt-5" type="submit">
                 Sign Up
               </Button>
             </form>
             <div className="bot-action my-3">
               <Input
-                onChange={handleCheckbox}
+                onChange={handleChange}
                 value="Accept terms and condition"
                 name="checked"
                 className="input-check me-2 mt-2"
@@ -123,13 +125,22 @@ const SignUp = () => {
               <label>Accept terms and condition</label>
             </div>
             <hr size="4" />
-            <p>Already have an account?</p>
+            <p className="text-center">Already have an account?</p>
             <Button className="btn-signin" onClick={handleClick}>
               Sign In
             </Button>
           </div>
         </div>
       </section>
+
+      {openModalSuccess ? (
+        <ModalSuccess
+          successTitle="Sign Up Success!"
+          successDesc="Please check your email and verify your account by click the link we've sent to you."
+          action="OK, I got it"
+          closeModal={handleModalSuccess}
+        />
+      ) : null}
     </Fragment>
   );
 };

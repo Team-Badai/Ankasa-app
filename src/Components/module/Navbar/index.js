@@ -20,8 +20,8 @@ import Button from "../../../Components/Button";
 import "../../../Pages/Main/main.css";
 import "./navbar.css";
 import ModalSearchFlight from "../ModalSearchFlight";
-import { useDispatch, useSelector } from 'react-redux'
-import { getUser } from '../../../Redux/actions/main/user'
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../Redux/actions/main/user";
 // import useDropdownMenu from 'react-accessible-dropdown-menu-hook';
 
 const Navbar = () => {
@@ -52,14 +52,14 @@ const Navbar = () => {
   //   setClick(!click);
   // };
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const data = useSelector((state) => state.FetchUser)
-  console.log(data.data.profile_picture)
+  const data = useSelector((state) => state.FetchUser);
+  console.log(data.data.profile_picture);
 
   useEffect(() => {
-    dispatch(getUser())
-  }, [])
+    dispatch(getUser());
+  }, []);
 
   return (
     <Fragment>
@@ -101,14 +101,16 @@ const Navbar = () => {
             <div className="nav-item ms-5 d-flex flex-column">
               <p
                 className={
-                  splitLocation[2] === "booking"
+                  splitLocation[2] === "booking" ||
+                  pathname === "/main/booking-detail"
                     ? "mt-3 mb-0 navbar-menu active"
                     : "mt-3 mb-0 navbar-menu "
                 }
               >
                 My Booking
               </p>
-              {splitLocation[2] === "booking" ? (
+              {splitLocation[2] === "booking" ||
+              pathname === "/main/booking-detail" ? (
                 <span className="active-nav"></span>
               ) : null}
             </div>
@@ -138,7 +140,7 @@ const Navbar = () => {
                   className="profile-icon rounded-pill border border-primary border-2 p-1"
                   src={data.data.profile_picture}
                   alt="Profile"
-                  height='55'
+                  height="55"
                 />
               </Link>
             </div>
