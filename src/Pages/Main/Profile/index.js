@@ -40,7 +40,7 @@ const Profile = () => {
   };
 
   const handleContinue = () => {
-    dispatch(updateProfile( form ));
+    dispatch(updateProfile(form));
   };
 
   return (
