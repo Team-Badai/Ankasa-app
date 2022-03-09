@@ -9,6 +9,7 @@ import user from "../../../assets/img/user.svg";
 import review from "../../../assets/img/Vector.svg";
 import settings from "../../../assets/img/Vector (1).svg";
 import logout from "../../../assets/img/Vector (2).svg";
+import blankProfile from "../../../assets/img/blank-profile-picture.png";
 import { changePicture } from "../../../Redux/actions/main/changePicture";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../../Redux/actions/main/user";
@@ -25,7 +26,6 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.FetchUser);
-  console.log(data);
 
   useEffect(() => {
     dispatch(getUser());
@@ -47,7 +47,6 @@ const Sidebar = () => {
     const formData = new FormData();
     formData.append("profile_picture", form.profile_picture);
     dispatch(changePicture(formData));
-    console.log(form);
     navigate("/");
   };
 
@@ -72,8 +71,10 @@ const Sidebar = () => {
       <div className="text-center d-flex flex-column align-items-center">
         <img
           className="rounded-pill border-primary border border-2 p-1"
-          src={data.data.profile_picture}
-          alt=""
+          src={
+            data.data.profile_picture ? data.data.profile_picture : blankProfile
+          }
+          alt="Profile"
           height="100"
         />
         <Button

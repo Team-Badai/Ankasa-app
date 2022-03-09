@@ -228,6 +228,12 @@
   z-index: 1;
 }
 
+.status-payment-waiting {
+  background-color: #ff7f23;
+}
+.status-payment-paid {
+  background-color: #4fcf4d;
+
 .payment {
   width: 100%;
   height: 100vh;

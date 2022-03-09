@@ -15,6 +15,7 @@ import pic from "../../../assets/img/nnzkZNYWHaU.svg";
 import bell from "../../../assets/img/bell.svg";
 import search from "../../../assets/img/search.svg";
 import menu from "../../../assets/img/align-right.svg";
+import blankProfile from "../../../assets/img/blank-profile-picture.png";
 import Input from "../../../Components/Input";
 import Button from "../../../Components/Button";
 import "../../../Pages/Main/main.css";
@@ -55,7 +56,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.FetchUser);
-  console.log(data.data.profile_picture);
 
   useEffect(() => {
     dispatch(getUser());
@@ -138,7 +138,11 @@ const Navbar = () => {
               <Link to={"/main/profile"}>
                 <img
                   className="profile-icon rounded-pill border border-primary border-2 p-1"
-                  src={data.data.profile_picture}
+                  src={
+                    data.data.profile_picture
+                      ? data.data.profile_picture
+                      : blankProfile
+                  }
                   alt="Profile"
                   height="55"
                 />

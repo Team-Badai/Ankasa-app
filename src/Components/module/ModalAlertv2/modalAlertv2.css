@@ -1,0 +1,123 @@
+.modal-bg {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-success-container {
+  height: 330px;
+  width: 450px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-success-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-success-text {
+  text-align: center;
+}
+.modal-success-title {
+  margin: 2rem 0.5rem 1rem 0.5rem;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 25px;
+  color: #3a3d42;
+}
+.modal-success-description {
+  margin: 0.7rem 1rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 20px;
+  color: rgba(58, 61, 66, 0.6);
+}
+.success-modal-icon {
+  font-size: 4rem;
+  color: #1ec15f;
+}
+
+.btn-modal-success {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 1rem 1.7rem;
+  margin: 0.5em;
+  margin-top: 1.7rem;
+  border-radius: 8px;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  cursor: pointer;
+  background: #2395ff;
+  color: #fff;
+  font-size: 1rem;
+}
+.btn-modal-success:hover {
+  background: #1e83e2;
+  transition: 0.3s;
+}
+.btn-modal-success:active {
+  background: #1772c7;
+  transition: 0.3s;
+}
+.btn-modal-later {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 1rem 1.7rem;
+  margin: 0.5em;
+  margin-top: 1.7rem;
+  border-radius: 8px;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border: 1px solid #2395ff;
+  cursor: pointer;
+  color: #2395ff;
+  background: #ffffff;
+  font-size: 1rem;
+}
+.btn-modal-later:hover {
+  background: #f8f8f8;
+  transition: 0.3s;
+}
+.btn-modal-later:active {
+  background: #f1f1f1;
+  transition: 0.3s;
+}
+.modal-alertv2-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1em;
+}
+
+@keyframes pull-down {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+.animation-pull-down {
+  animation-name: pull-down;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+}
