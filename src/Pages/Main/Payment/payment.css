@@ -1,0 +1,58 @@
+.payment {
+    width: 100%;
+    height: 100vh;
+}
+
+.payment-right {
+    height: 400px;
+}
+
+.payment-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #F5F6FA;
+    box-sizing: border-box;
+    padding: 20px 50px;
+}
+
+.cards-selection {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.font-18 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.font-16 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #6B6B6B;
+}
+
+.font-12 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;
+    color: #6B6B6B;
+}
+
+.blue1 {
+    color: #2395FF;
+}
+
+.blue2 {
+    color: #2395FF;
+}
+
+.container input {
+    height: 30px;
+    width: 30px;
+
+}
