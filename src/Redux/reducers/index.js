@@ -1,12 +1,16 @@
-import { combineReducers } from "redux";
-
-//------- import reducers
-import AuthSignUp from "./auth/authSignUp";
-import AuthLogin from "./auth/authLogin";
+import { combineReducers } from "redux"
+import Booking from './main/booking'
+import BookingDetail from './main/bookingDetail'
+import UpdateProfile from "./main/updateProfile"
+import ChangePicture from './main/changePicture'
+import getProfile from './main/profile'
 
 const rootReducers = combineReducers({
-    AuthSignUp,
-    AuthLogin
-});
+    Booking,
+    BookingDetail,
+    UpdateProfile,
+    ChangePicture,
+    getProfile
+})
 
-export default rootReducers;
+export default rootReducers

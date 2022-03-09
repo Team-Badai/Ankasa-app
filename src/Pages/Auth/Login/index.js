@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as BsIcons from "react-icons/bs";
 import Logo from "../../../assets/img/Logo2.svg";
 import Google from "../../../assets/img/btnGoogle.svg";
@@ -16,7 +16,7 @@ const Login = () => {
     password: "",
   });
 
-  const {loading } = useSelector((state) => state.AuthLogin)
+  // const {loading } = useSelector((state) => state.AuthLogin)
   const dispatch = useDispatch();
 
   const FormAddUser = new FormData();
