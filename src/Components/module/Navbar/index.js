@@ -102,7 +102,9 @@ const Navbar = () => {
               <p
                 className={
                   splitLocation[2] === "booking" ||
-                  pathname === "/main/booking-detail"
+                  pathname === "/main/booking-detail" ||
+                  pathname === "/main/create-booking" ||
+                  pathname === "/main/payment"
                     ? "mt-3 mb-0 navbar-menu active"
                     : "mt-3 mb-0 navbar-menu "
                 }
@@ -110,7 +112,9 @@ const Navbar = () => {
                 My Booking
               </p>
               {splitLocation[2] === "booking" ||
-              pathname === "/main/booking-detail" ? (
+              pathname === "/main/booking-detail" ||
+              pathname === "/main/create-booking" ||
+              pathname === "/main/payment" ? (
                 <span className="active-nav"></span>
               ) : null}
             </div>

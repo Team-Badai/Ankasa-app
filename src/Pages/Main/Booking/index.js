@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../../Components/module/Navbar";
 import Footer from "../../../Components/module/Footer";
 import Sidebar from "../../../Components/module/Sidebar";
@@ -12,12 +13,13 @@ import ModalAlertv2 from "../../../Components/module/ModalAlertv2";
 const Booking = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { state } = useLocation();
 
   const [tempData, setTempData] = useState("");
   const data = useSelector((state) => state.FetchMyBookings);
 
   const toPaymentPage = () => {
-    navigate("/main/booking-payment", { state: tempData });
+    navigate("/main/payment", { state: tempData }, { replace: true });
   };
 
   useEffect(() => {
@@ -83,9 +85,11 @@ const Booking = () => {
                   airline_name: item.flight_details[0].airline_name
                 };
                 if (item.booking_details[0].payment_status === "paid") {
-                  navigate("/main/booking-detail", {
-                    state: ticketData
-                  });
+                  navigate(
+                    "/main/booking-detail",
+                    { state: ticketData },
+                    { replace: true }
+                  );
                 } else {
                   handleModalAlert();
                 }
@@ -152,9 +156,11 @@ const Booking = () => {
                           airline_name: item.flight_details[0].airline_name
                         };
                         if (item.booking_details[0].payment_status === "paid") {
-                          navigate("/main/booking-detail", {
-                            state: ticketData
-                          });
+                          navigate(
+                            "/main/booking-detail",
+                            { state: ticketData },
+                            { replace: true }
+                          );
                         } else {
                           handleModalAlert();
                         }
