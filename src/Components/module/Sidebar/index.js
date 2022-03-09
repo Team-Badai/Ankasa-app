@@ -60,7 +60,7 @@ const Sidebar = () => {
     }
 
     return (
-        <div className='d-none d-md-flex flex-column p-3 me-3 ms-5 rounded mt-5 w-25 bg-white'>
+        <div className='d-none d-md-flex flex-column p-3 me-3 ms-5 rounded mt-5 w-25 bg-white sidebar'>
             <div class="text-center d-flex flex-column align-items-center">
                 <img className='rounded-pill border-primary border border-2 p-1' src={data.data.profile_picture} alt="" height='100' />
                 <Button className='btn-sign bg-white border-primary border rounded-3 p-2 text-primary mt-4 fw-bolder' onClick={() => openModal()}>

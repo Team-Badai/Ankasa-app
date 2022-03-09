@@ -9,7 +9,8 @@ import FetchBookingDetail from "./main/bookingDetail";
 import FetchUpdateProfile from "./main/updateProfile";
 import FetchSearchFlights from "./main/searchFlights";
 import FetchUser from "./main/user";
-import getProfile from "./main/profile"
+import getProfile from "./main/profile";
+import FetchCreateBooking from "./main/createBooking";
 
 const rootReducers = combineReducers({
   AuthSignUp,
@@ -20,7 +21,8 @@ const rootReducers = combineReducers({
   FetchUpdateProfile,
   FetchSearchFlights,
   FetchUser,
-  getProfile
+  getProfile,
+  FetchCreateBooking
 });
 
 export default rootReducers;

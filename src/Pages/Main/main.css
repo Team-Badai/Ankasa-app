@@ -218,3 +218,40 @@ https://media.geeksforgeeks.org/wp-content/uploads/20200326181026/wave3.png);
   position: relative;
   z-index: 1;
 }
+
+.wrapper {
+  background-color: #2395FF;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  color: #FFFFFF;
+  background-image: url(../../assets/img/big-plane-search.svg);
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.bg-danger {
+  background: rgba(242, 69, 69, 0.1)!important;
+}
+
+.bg-blue {
+  background: rgba(35, 149, 255, 0.1)!important;
+}
+
+.flight-detail {
+  height: 55vh;
+  width: 30vw;
+}
+
+.input-booking {
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgba(210, 194, 255, 0.68);
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.sidebar {
+  height: 100vh;
+}
