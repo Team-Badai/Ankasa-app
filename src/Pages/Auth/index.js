@@ -1,9 +1,13 @@
 import React, { Fragment } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import "./auth.css";
 import Plane from "../../assets/img/plane.png";
 
 const Auth = () => {
+  let token = localStorage.getItem("token");
+  if (token) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <Fragment>
       <main className="container-fluid row g-0 d-flex auth-container">

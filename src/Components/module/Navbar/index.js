@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import {
   useSearchParams,
   useNavigate,
@@ -19,10 +20,15 @@ import Button from "../../../Components/Button";
 import "../../../Pages/Main/main.css";
 import "./navbar.css";
 import ModalSearchFlight from "../ModalSearchFlight";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../Redux/actions/main/user";
 // import useDropdownMenu from 'react-accessible-dropdown-menu-hook';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const splitLocation = pathname.split("/");
+
   const token = localStorage.getItem("token");
   const [searchParams, setSearchParams] = useSearchParams();
   const querySearch = searchParams.get("search");
@@ -45,6 +51,15 @@ const Navbar = () => {
   // const hanldeClick = () => {
   //   setClick(!click);
   // };
+
+  const dispatch = useDispatch();
+
+  const data = useSelector((state) => state.FetchUser);
+  console.log(data.data.profile_picture);
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   return (
     <Fragment>
@@ -69,13 +84,35 @@ const Navbar = () => {
             onClick={handleModalSearchFlight}
             className="nav-item ms-5 d-flex flex-column"
           >
-            <p className="mt-3 mb-0 navbar-menu ">Find Ticket</p>
-            {/* <span className="active-nav"></span> */}
+            <p
+              className={
+                pathname === "/main/search-result"
+                  ? "mt-3 mb-0 navbar-menu active"
+                  : "mt-3 mb-0 navbar-menu "
+              }
+            >
+              Find Ticket
+            </p>
+            {pathname === "/main/search-result" ? (
+              <span className="active-nav"></span>
+            ) : null}
           </div>
           <Link to={"/main/booking"}>
             <div className="nav-item ms-5 d-flex flex-column">
-              <p className="mt-3 mb-0 navbar-menu">My Booking</p>
-              {/* <span className="active-nav"></span> */}
+              <p
+                className={
+                  splitLocation[2] === "booking" ||
+                  pathname === "/main/booking-detail"
+                    ? "mt-3 mb-0 navbar-menu active"
+                    : "mt-3 mb-0 navbar-menu "
+                }
+              >
+                My Booking
+              </p>
+              {splitLocation[2] === "booking" ||
+              pathname === "/main/booking-detail" ? (
+                <span className="active-nav"></span>
+              ) : null}
             </div>
           </Link>
         </div>
@@ -85,20 +122,25 @@ const Navbar = () => {
               <Link to={"/main/chat"}>
                 <div className="navbar-icons me-5">
                   <BiIcons.BiEnvelope className="chat-icon " />
-                  {/* <span className="active-nav-icons"></span> */}
+                  {splitLocation[2] === "chat" ? (
+                    <span className="active-nav-icons"></span>
+                  ) : null}
                 </div>
               </Link>
               <Link to={"/main/notification"}>
                 <div className="navbar-icons me-5">
                   <BiIcons.BiBell className="notif-icon" />
-                  {/* <span className="active-nav-icons"></span> */}
+                  {splitLocation[2] === "notification" ? (
+                    <span className="active-nav-icons"></span>
+                  ) : null}
                 </div>
               </Link>
               <Link to={"/main/profile"}>
                 <img
                   className="profile-icon rounded-pill border border-primary border-2 p-1"
-                  src={pic}
+                  src={data.data.profile_picture}
                   alt="Profile"
+                  height="55"
                 />
               </Link>
             </div>

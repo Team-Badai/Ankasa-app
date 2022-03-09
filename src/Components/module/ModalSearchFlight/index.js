@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as IoIosIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
 import * as HiIcons from "react-icons/hi";
@@ -17,6 +18,7 @@ const ModalSearchFlight = () => {
   const dispatch = useDispatch();
   const searchFightsData = useSelector((state) => state.FetchSearchFlights);
 
+  const navigate = useNavigate();
   const [journeys, setJourneys] = useState("");
   const [flightClass, setFlightClass] = useState("");
   const [form, setForm] = useState({
@@ -54,11 +56,13 @@ const ModalSearchFlight = () => {
       setFlightClass("first");
     }
   };
+  const toResultPage = () => {
+    navigate("/main/search-result", { state: searchFlightForm });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(SearchFlights(searchFlightForm));
-    console.log(searchFlightForm);
+    dispatch(SearchFlights({ searchFlightForm, toResultPage }));
   };
 
   return (

@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_URL_BACKEND
-})
+  baseURL: process.env.REACT_APP_URL_BACKEND
+});
 
 export const AuthLoginRequest = () => {
   return {
@@ -22,10 +22,11 @@ export const AuthLoginFailed = (error) => {
   };
 };
 
-export const AuthLogin = (data) => {
+export const AuthLogin = ({ form, navigate }) => {
   return (dispatch) => {
     dispatch(AuthLoginRequest());
-            return api.post('users/login', data.form)
+    return api
+      .post("users/login", form)
       .then((res) => {
         const data = res.data.data;
         const token = data.token;
@@ -33,10 +34,11 @@ export const AuthLogin = (data) => {
         localStorage.setItem("token", JSON.stringify(token));
         localStorage.setItem("auth", JSON.stringify(data));
         dispatch(AuthLoginSuccess(data));
+        navigate("/");
       })
       .catch((err) => {
-        const message = err.message
-        dispatch(AuthLoginFailed(message))
+        const message = err.message;
+        dispatch(AuthLoginFailed(message));
       });
   };
 };

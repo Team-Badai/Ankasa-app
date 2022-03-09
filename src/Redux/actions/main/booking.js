@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const token = localStorage.getItem();
+const token = JSON.parse(localStorage.getItem("token"));
 
 export const getFlightsRequest = () => {
   return {
@@ -27,8 +27,8 @@ export const getFlights = () => {
     dispatch(getFlightsRequest());
     return axios({
       method: "GET",
-      url: `${process.env.REACT_APP_URL_BACKEND}flights`
-      //   headers: { Authorization: `Bearer ${token}` }
+      url: `${process.env.REACT_APP_URL_BACKEND}bookings/my-booking`,
+      headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) => {
         const data = res.data?.data;
@@ -36,7 +36,7 @@ export const getFlights = () => {
         console.log(data);
       })
       .catch((err) => {
-        const message = err.response.message;
+        const message = err.message;
         dispatch(getFlightsFail(message));
       });
   };

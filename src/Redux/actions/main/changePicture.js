@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const token = JSON.parse(localStorage.getItem("token"));
+
 export const changePictureRequest = () => {
     return {
         type: 'CHANGE_PICTURE_REQUEST'
@@ -20,17 +22,17 @@ export const changePictureFail = (error) => {
     }
 }
 
-export const changePicture = ({ formData, navigate }) => {
+export const changePicture = (formData) => {
     return (dispatch) => {
         dispatch(changePictureRequest())
         return axios({
             method: 'PUT',
             url: `${process.env.REACT_APP_URL_BACKEND}users/profile-picture`,
+            headers: {Authorization: `Bearer ${token}`},
             data: formData
         }).then((res) => {
             const data = res.data?.data
             dispatch(changePictureSuccess(data))
-            navigate('/profile')
         }).catch((err) => {
             const message = err.message
             dispatch(changePictureFail(message))

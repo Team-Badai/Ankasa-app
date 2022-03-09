@@ -1,15 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import pic from "../../../assets/img/nnzkZNYWHaU.svg";
+// import pic from '../../../assets/img/nnzkZNYWHaU.svg'
 import Button from "../../../Components/Button";
 import "../../../Pages/Main/main.css";
 import user from "../../../assets/img/user.svg";
 import review from "../../../assets/img/Vector.svg";
 import settings from "../../../assets/img/Vector (1).svg";
 import logout from "../../../assets/img/Vector (2).svg";
-import { useDispatch } from "react-redux";
 import { changePicture } from "../../../Redux/actions/main/changePicture";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../Redux/actions/main/user";
+import ModalAlert from "../ModalAlert";
+import * as AiIcons from "react-icons/ai";
 
 const Sidebar = () => {
   const handleLogout = () => {
@@ -19,6 +23,13 @@ const Sidebar = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const data = useSelector((state) => state.FetchUser);
+  console.log(data);
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   const [form, setForm] = useState({
     profile_picture: ""
@@ -35,8 +46,9 @@ const Sidebar = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("profile_picture", form.profile_picture);
-    dispatch(changePicture({ formData, navigate }));
+    dispatch(changePicture(formData));
     console.log(form);
+    navigate("/");
   };
 
   const [modalPic, setModalPic] = useState(false);
@@ -49,12 +61,18 @@ const Sidebar = () => {
     }
   };
 
+  const [openModalAlert, setOpenModalAlert] = useState(false);
+
+  const handleModalAlert = () => {
+    setOpenModalAlert(!openModalAlert);
+  };
+
   return (
     <div className="d-none d-md-flex flex-column p-3 me-3 ms-5 rounded mt-5 w-25 bg-white">
-      <div class="text-center d-flex flex-column align-items-center">
+      <div className="text-center d-flex flex-column align-items-center">
         <img
           className="rounded-pill border-primary border border-2 p-1"
-          src={pic}
+          src={data.data.profile_picture}
           alt=""
           height="100"
         />
@@ -64,10 +82,10 @@ const Sidebar = () => {
         >
           Select Photo
         </Button>
-        <p className="mt-4 fw-bolder mb-0 fs-5">Mike</p>
-        <span className="text-secondary">Medan</span>
+        <p className="mt-4 fw-bolder mb-0 fs-5">{data.data.fullname}</p>
+        <span className="text-secondary">{data.data.address}</span>
       </div>
-      <div class="d-flex flex-column mt-4">
+      <div className="d-flex flex-column mt-4">
         <div className="d-flex justify-content-between">
           <p className="fw-bold">Cards</p>
           <p className="text-primary fw-bold cursor">+ Add</p>
@@ -79,11 +97,10 @@ const Sidebar = () => {
             <span className="">Rp500000</span>
           </div>
         </div>
-        <div class="menu ms-3 mt-5">
-          <div class="">
-            <a
-              href=""
-              class="icon mb-4 text-dark text-decoration-none"
+        <div className="menu ms-3 mt-5">
+          <div className="">
+            <div
+              className="icon mb-4 text-dark text-decoration-none cursor"
               onClick={() => {
                 navigate("/main/profile");
               }}
@@ -93,30 +110,29 @@ const Sidebar = () => {
                 src={user}
                 alt=""
               />
-              <span class="ms-4 text-primary fw-bold">Profile</span>
-            </a>
+              <span className="ms-4 text-primary fw-bold">Profile</span>
+            </div>
           </div>
-          <div class="my-4">
-            <a href="" class="icon text-dark text-decoration-none">
+          <div className="my-4">
+            <div className="icon text-dark text-decoration-none cursor">
               <img src={review} alt="" />
-              <span class="ms-4 fw-bold">My Review</span>
-            </a>
+              <span className="ms-4 fw-bold">My Review</span>
+            </div>
           </div>
-          <div class="my-4">
-            <a href="" class="icon text-dark my-4 text-decoration-none">
+          <div className="my-4">
+            <div className="icon text-dark my-4 text-decoration-none cursor">
               <img src={settings} alt="" />
-              <span class="ms-4 fw-bold">Settings</span>
-            </a>
+              <span className="ms-4 fw-bold">Settings</span>
+            </div>
           </div>
-          <div class="my-4">
-            <a
-              href=""
-              class="icon text-dark text-decoration-none"
-              onClick={handleLogout}
+          <div className="my-4">
+            <div
+              className="icon text-dark text-decoration-none cursor"
+              onClick={handleModalAlert}
             >
               <img src={logout} alt="" />
-              <span class="ms-4 text-danger fw-bold">Log Out</span>
-            </a>
+              <span className="ms-4 text-danger fw-bold">Log Out</span>
+            </div>
           </div>
         </div>
       </div>
@@ -124,13 +140,13 @@ const Sidebar = () => {
         <div className="modals">
           <div className="modal-content p-4">
             <div className="d-flex justify-content-between">
-              <h5 class="fw-bold mt-3">Change Profile Picture</h5>
+              <h5 className="fw-bold mt-3">Change Profile Picture</h5>
               <Button
                 className="btn-close"
                 onClick={() => openModal(false)}
               ></Button>
             </div>
-            <p class="fw-lighter mt-2">
+            <p className="fw-lighter mt-2">
               Choose the picture and then <br></br>
               press continue to the next steps.
             </p>
@@ -168,6 +184,17 @@ const Sidebar = () => {
       ) : (
         ""
       )}
+
+      {openModalAlert ? (
+        <ModalAlert
+          alertIcon={<AiIcons.AiOutlineLogout />}
+          alertTitle="Log Out Account?"
+          alertDesc="Are you sure you want to log out from Ankasa? Save all your changes before logout."
+          action="Log Out"
+          closeModal={handleModalAlert}
+          handleAction={handleLogout}
+        />
+      ) : null}
     </div>
   );
 };
