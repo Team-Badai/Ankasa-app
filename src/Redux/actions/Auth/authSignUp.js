@@ -22,24 +22,6 @@ export const AuthSignUpFailed = (error) => {
   };
 };
 
-// export const AuthSignUp = (data) => {
-//   return (dispatch) => {
-//     dispatch(AuthSignUpRequest());
-//     return api.post('/users/signup', data.form)
-//       .then((res) => {
-//         const data = res.data?.data;
-//         console.log(data);
-//         // const userId = data.id;
-//         // localStorage.setItem("userId", JSON.stringify(userId));
-//         dispatch(AuthSignUpSuccess(data));
-//       })
-//       .catch((err) => {
-//         const message = err.message
-//         dispatch(AuthSignUpFailed(message))
-//       });
-//   };
-// };
-
 export const AuthSignUp = (data)=>{
   return (dispatch) =>{
       dispatch(AuthSignUpRequest())
