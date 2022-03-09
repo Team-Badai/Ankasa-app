@@ -11,6 +11,7 @@ import Payment from "../Pages/Main/Payment";
 import Chat from "../Pages/Main/Chat";
 import Notification from "../Pages/Main/Notification";
 import Profile from "../Pages/Main/Profile";
+import SearchPage from "../Pages/Main/SearchFlight";
 import Page404 from "../Pages/404";
 
 const Router = () => {
@@ -28,6 +29,7 @@ const Router = () => {
         <Route path={"/main"}>
           <Route path="booking" element={<Booking />} />
           <Route path="booking-detail" element={<BookingDetail />} />
+          <Route path="search-result" element={<SearchPage />} />
           <Route path="payment" element={<Payment />} />
           <Route path="profile" element={<Profile />} />
           <Route path="chat" element={<Chat />} />

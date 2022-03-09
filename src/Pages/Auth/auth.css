@@ -75,6 +75,14 @@ input[type="checkbox"] {
   margin-top: -30px;
 }
 
+.text-error {
+  margin: 0;
+  padding: 0;
+  text-align: left !important;
+  font-size: 0.65em;
+  color: red;
+}
+
 /* Styling for mobile layout */
 
 @media screen and (max-width: 620px) {

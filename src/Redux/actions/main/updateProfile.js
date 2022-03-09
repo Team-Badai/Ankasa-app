@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const token = JSON.parse(localStorage.getItem("token"));
+
 export const updateProfileRequest = () => {
     return {
         type: 'PUT_PROFILE_REQUEST'
@@ -26,6 +28,7 @@ export const updateProfile = (form) => {
         return axios({
             method: 'PUT',
             url: `${process.env.REACT_APP_URL_BACKEND}users/profile-update`,
+            headers: {Authorization: `Bearer ${token}`},
             data: {
                 email: form.email,
                 phone_number: form.phone_number,
@@ -41,6 +44,7 @@ export const updateProfile = (form) => {
         }).catch((err)=> {
             const message = err.message
             dispatch(updateProfileFail(message))
+            console.log(form);
         })
     }
 }

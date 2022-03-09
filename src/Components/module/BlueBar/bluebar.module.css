@@ -1,0 +1,53 @@
+.wrapper {
+    width: 100%;
+    height: 80%;
+    padding: 0 100px;
+    background-color: #2395FF;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: #FFFFFF;
+    background-image: url(../../../assets/img/big-plane-search.svg);
+    background-repeat: no-repeat;
+}
+
+.search-area {
+    width: 100%;
+}
+
+.left-side {
+    width: 50%;
+}
+
+.right-side {
+    width: 50%;
+}
+
+.content-wrapper {
+    width: 50%;
+}
+
+
+
+.middle-search {
+    width: 20%;
+}
+
+.right-search {
+    width: 40%;
+}
+
+
+.font-12 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    font-family: 'Lato', sans-serif;
+}
+
+.font-16 {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Poppins', sans-serif;
+}

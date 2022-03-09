@@ -7,36 +7,35 @@ import Input from "../../../Components/Input";
 import "../auth.css";
 import { useDispatch } from "react-redux";
 import { AuthSignUp } from "../../../Redux/actions/Auth/authSignUp";
+import ModalSuccess from "../../../Components/module/ModalSuccess";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [openModalSuccess, setOpenModalSuccess] = useState(false);
+
+  const handleModalSuccess = () => {
+    setOpenModalSuccess(!openModalSuccess);
+  };
+  const [errorMessage, setErrorMessage] = useState("");
+  const [checked, setChecked] = useState("");
   const [form, setFrom] = useState({
     fullname: "",
     email: "",
-    password: "",
-    requisite: "",
+    password: ""
   });
 
-  const FormAddUser = new FormData();
-  FormAddUser.append("fullname", form.fullname);
-  FormAddUser.append("email", form.email);
-  FormAddUser.append("password", form.password);
-  FormAddUser.append("equisite", form.requisite);
-
-  const dispatch = useDispatch();
-  const [checked, setChecked] = useState("");
-
-  const handleCheckbox = (e) => {
-    console.log("CHECKED",e.target.value);
-    setChecked(e.target.value)
+  const signupData = {
+    fullname: form.fullname,
+    email: form.email,
+    password: form.password,
+    requisite: checked
   };
 
   const handleChange = (e) => {
-    setFrom({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    setFrom({ ...form, [e.target.name]: e.target.value });
+    setChecked(e.target.value);
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -51,15 +50,18 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(AuthSignUp({ form }));
-    console.log("ISI FORM",form);
+    dispatch(AuthSignUp({ signupData, handleModalSuccess, setErrorMessage }));
+  };
+
+  const toIndexPage = () => {
+    navigate("/");
   };
 
   return (
     <Fragment>
       <section className="row col-xl-4 right-section p-xl-5">
         <div className="form">
-          <div className="header">
+          <div onClick={toIndexPage} className="header">
             <img src={Logo} alt="" />
           </div>
           <div className="content">
@@ -102,21 +104,25 @@ const SignUp = () => {
                   />
                 )}
               </div>
+
+              {errorMessage ? (
+                <p className="text-error mb-0">{errorMessage}</p>
+              ) : null}
               <Button className="btn-login mt-5" type="submit">
                 Sign Up
               </Button>
             </form>
-            <div className="bot-action my-3">                
-            <Input
-                  onChange={handleCheckbox}
-                  value='Accept terms and condition'
-                  name="checked"
-                  className="input-check me-2 mt-2"
-                  checked={checked === "Accept terms and condition"}
-                  type="checkbox"
-                  id="checked"
-                />
-                <label>Accept terms and condition</label>
+            <div className="bot-action my-3">
+              <Input
+                onChange={handleChange}
+                value="Accept terms and condition"
+                name="checked"
+                className="input-check me-2 mt-2"
+                checked={checked === "Accept terms and condition"}
+                type="checkbox"
+                id="checked"
+              />
+              <label>Accept terms and condition</label>
             </div>
             <hr size="4" />
             <p className="text-center">Already have an account?</p>
@@ -126,6 +132,15 @@ const SignUp = () => {
           </div>
         </div>
       </section>
+
+      {openModalSuccess ? (
+        <ModalSuccess
+          successTitle="Sign Up Success!"
+          successDesc="Please check your email and verify your account by click the link we've sent to you."
+          action="OK, I got it"
+          closeModal={handleModalSuccess}
+        />
+      ) : null}
     </Fragment>
   );
 };
