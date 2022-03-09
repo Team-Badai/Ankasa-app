@@ -2,19 +2,19 @@ const initialState = {
     data: [],
     loading: false,
     error: false
-  };
-  
-  const FetchSearchFlights = (state = initialState, action = {}) => {
+};
+
+const PostBookingPayment = (state = initialState, action = {}) => {
     switch (action.type) {
-      case "SEARCH_FLIGHTS_REQUEST":
+        case "POST_BOOKING_PAYMENT_REQUEST":
         return { ...state, loading: true };
-      case "SEARCH_FLIGHTS_SUCCESS":
+        case "POST_BOOKING_PAYMENT_SUCCESS":
         return { ...state, loading: false, data: action.payload };
-      case "SEARCH_FLIGHTS_FAIL":
+        case "POST_BOOKING_PAYMENT_FAIL":
         return { ...state, loading: false, error: action.payload };
-      default:
+        default:
         return state;
     }
-  };
+};
   
-  export default FetchSearchFlights;
+export default PostBookingPayment;

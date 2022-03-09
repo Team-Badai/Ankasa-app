@@ -13,6 +13,7 @@ import Notification from "../Pages/Main/Notification";
 import Profile from "../Pages/Main/Profile";
 import SearchPage from "../Pages/Main/SearchFlight";
 import Page404 from "../Pages/404";
+import CreateBooking from "../Pages/Main/CreateBooking";
 
 const Router = () => {
   return (
@@ -27,6 +28,7 @@ const Router = () => {
           <Route index element={<Navigate to="/auth/login" />} />
         </Route>
         <Route path={"/main"}>
+          <Route path="create-booking" element={<CreateBooking />} />
           <Route path="booking" element={<Booking />} />
           <Route path="booking-detail" element={<BookingDetail />} />
           <Route path="search-result" element={<SearchPage />} />

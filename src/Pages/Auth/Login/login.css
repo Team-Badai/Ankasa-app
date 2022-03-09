@@ -1,12 +1,13 @@
 .right-section {
-  flex: 1.4;
-  overflow-y: hidden;
-  height: 100vh;
+  /* flex: 1.45; */
+  width: 40%;
+  height: 100vh!important;
 }
 .header {
   width: 100%;
-  height: 35px;
-  transform: translateX(-1vw);
+  /* height: 35px; */
+  /* margin-right: 150px!important; */
+  /* transform: translateX(-1vw); */
 }
 .title {
   font-style: normal;
@@ -17,6 +18,9 @@
   margin-right: 6.2em;
 }
 
+.link{
+  margin-left: 5.5em;
+}
 /* .right-section {
   flex: 1.5;
 }
@@ -84,6 +88,6 @@
 
 hr {
   background: #d8d8d8;
-  width: 277px;
+  width: 325px;
   size: 7px;
 }
