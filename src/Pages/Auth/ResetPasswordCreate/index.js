@@ -15,8 +15,8 @@ const ResetPasswordCreate = () => {
   const dispatch = useDispatch();
   const resetPassData = useSelector((state) => state.AuthResetPassword);
 
-  const { id } = useParams();
-  const tokenReset = id;
+  const { token } = useParams();
+  const tokenReset = token;
   console.log(tokenReset);
   const [form, setFrom] = useState({
     password: "",
