@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Fragment, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Logo from "../../../assets/img/Logo2.svg";
 import Button from "../../../Components/Button";
 import Input from "../../../Components/Input";
@@ -17,7 +17,7 @@ const ResetPasswordCreate = () => {
 
   const { token } = useParams();
   const tokenReset = token;
-  console.log(tokenReset);
+  const navigate = useNavigate();
   const [form, setFrom] = useState({
     password: "",
     confirmPassword: ""
@@ -51,7 +51,7 @@ const ResetPasswordCreate = () => {
   };
 
   const toLoginPage = () => {
-    Navigate("/auth/login");
+    navigate("/auth/login", { replace: true });
   };
 
   return (
