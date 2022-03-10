@@ -14,6 +14,7 @@ import Profile from "../Pages/Main/Profile";
 import SearchPage from "../Pages/Main/SearchFlight";
 import Page404 from "../Pages/404";
 import CreateBooking from "../Pages/Main/CreateBooking";
+import ResetPasswordCreate from "../Pages/Auth/ResetPasswordCreate";
 
 const Router = () => {
   return (
@@ -25,6 +26,7 @@ const Router = () => {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="resetpass" element={<ResetPassword />} />
+          <Route path="reset-password" element={<ResetPasswordCreate />} />
           <Route index element={<Navigate to="/auth/login" />} />
         </Route>
         <Route path={"/main"}>
