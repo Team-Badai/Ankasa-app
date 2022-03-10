@@ -16,10 +16,15 @@ const Booking = () => {
   const { state } = useLocation();
 
   const [tempData, setTempData] = useState("");
+  const [tempFlight, setTempFlight] = useState("");
   const data = useSelector((state) => state.FetchMyBookings);
 
   const toPaymentPage = () => {
-    navigate("/main/payment", { state: tempData }, { replace: true });
+    navigate(
+      "/main/payment",
+      { state: { id_bookings: tempData, id_flights: tempFlight } },
+      { replace: true }
+    );
   };
 
   useEffect(() => {
@@ -80,6 +85,7 @@ const Booking = () => {
               className="text-primary fw-bold cursor flex-fill mb-5"
               onClick={() => {
                 setTempData(item.booking_details[0].id);
+                setTempFlight(item.flight_details[0].id);
                 const ticketData = {
                   id_booking: item.booking_details[0].id,
                   airline_name: item.flight_details[0].airline_name
@@ -151,6 +157,7 @@ const Booking = () => {
                       className="text-primary fw-bold cursor flex-fill text-end d-none d-md-block"
                       onClick={() => {
                         setTempData(item.booking_details[0].id);
+                        setTempFlight(item.flight_details[0].id);
                         const ticketData = {
                           id_booking: item.booking_details[0].id,
                           airline_name: item.flight_details[0].airline_name
