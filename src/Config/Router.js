@@ -26,7 +26,10 @@ const Router = () => {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="resetpass" element={<ResetPassword />} />
-          <Route path="reset-password" element={<ResetPasswordCreate />} />
+          <Route
+            path="reset-password/:token"
+            element={<ResetPasswordCreate />}
+          />
           <Route index element={<Navigate to="/auth/login" />} />
         </Route>
         <Route path={"/main"}>
