@@ -3,11 +3,11 @@ import React, { Fragment, useState } from "react";
 import Logo from "../../../assets/img/Logo2.svg";
 import Button from "../../../Components/Button";
 import Input from "../../../Components/Input";
+import ModalSuccess from "../../../Components/module/ModalSuccess";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { AuthEmailReset } from "../../../Redux/actions/Auth/authResetPasswordEmail";
-import ModalSuccess from "../../../Components/module/ModalSuccess";
 
 const ResetPassword = () => {
   const dispatch = useDispatch();

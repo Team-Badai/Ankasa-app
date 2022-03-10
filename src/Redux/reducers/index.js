@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import AuthSignUp from "./auth/authSignUp";
 import AuthLogin from "./auth/authLogin";
 import AuthEmailResetPassword from "./auth/authResetPasswordEmail";
+import AuthResetPassword from "./auth/authResetPassword";
 import FetchProfilePicture from "./main/changePicture";
 import FetchMyBookings from "./main/booking";
 import FetchBookingDetail from "./main/bookingDetail";
@@ -21,6 +22,7 @@ const rootReducers = combineReducers({
   AuthSignUp,
   AuthLogin,
   AuthEmailResetPassword,
+  AuthResetPassword,
   FetchMyBookings,
   FetchBookingDetail,
   FetchProfilePicture,
