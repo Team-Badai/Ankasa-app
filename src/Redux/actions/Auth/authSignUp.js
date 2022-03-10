@@ -38,10 +38,10 @@ export const AuthSignUp = ({
       })
       .catch((err) => {
         const message = err.response;
-        if (err.response.status === 403) {
-          setErrorMessage(err.response.data.message);
-        } else {
+        if (err.response.status === 500) {
           setErrorMessage("We have trouble");
+        } else {
+          setErrorMessage(err.response.data.message);
         }
         dispatch(AuthSignUpFailed(message));
       });
