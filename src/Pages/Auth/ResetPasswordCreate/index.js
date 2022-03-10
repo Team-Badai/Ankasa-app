@@ -17,6 +17,7 @@ const ResetPasswordCreate = () => {
 
   const { id } = useParams();
   const tokenReset = id;
+  console.log(tokenReset);
   const [form, setFrom] = useState({
     password: "",
     confirmPassword: ""
