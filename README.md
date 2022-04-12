@@ -15,7 +15,7 @@
     <a href="https://github.com/Team-Badai/Ankasa-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Team-Badai/Ankasa-app">View Demo</a>
+    <a href="https://ankasa-ticketing-app.netlify.app" target="blank" >View Demo</a>
     ·
     <a href="https://github.com/Team-Badai/Ankasa-app/issues">Report Bug</a>
     ·
