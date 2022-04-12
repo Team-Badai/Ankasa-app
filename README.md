@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/Team-Badai/Ankasa-app">
+    <img src="./src/assets/snippets/logoLg.png" alt="AnkasaLogo" width="80" height="80">
+  </a>
 
-## Available Scripts
+  <h3 align="center">Ankasa</h3>
 
-In the project directory, you can run:
+  <p align="center">
+    Find Your Flight and Explore the World with Us.
+    <br />
+    <a href="https://github.com/Team-Badai/Ankasa-app"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Team-Badai/Ankasa-app">View Demo</a>
+    ·
+    <a href="https://github.com/Team-Badai/Ankasa-app/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Team-Badai/Ankasa-app/issues">Request Feature</a>
+  </p>
+</div>
 
-### `npm start`
+<!-- ABOUT THE PROJECT -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About The Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Ankasa Landing Page](./src/assets/snippets/ankasa-landing.png)
 
-### `npm test`
+**Ankasa** is A Website Based Application for Flights Ticket Booking that offers simplicity and rapidity specifically for Indonesian Airlines.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `npm run build`
+### Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This app was built with some technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ReactJS](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Axios](https://axios-http.com/)
+- [Bootstrap](https://getbootstrap.com)
+- [Netlify](https://www.netlify.com/)
+- [Backend APIs](https://github.com/Team-Badai/Ankasa-API)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Team-Badai/Ankasa-app.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the Application
+   ```sh
+   npm start
+   ```
 
-## Learn More
+## Demonstration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Or you can try it here: [Ankasa Web App](https://ankasa-ticketing-app.netlify.app)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Snippets
 
-### Code Splitting
+Here are some snippets about this app:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> Web page
 
-### Analyzing the Bundle Size
+|                             Landing Page                              |    Landing Page Mobile    |
+| :-------------------------------------------------------------------: | :-----------------------: |
+|       ![Landing Page](./src/assets/snippets/ankasa-landing.png)       |           ![]()           |
+|                           Registration Page                           | Registration Page Mobile  |
+|      ![Registration Page](./src/assets/snippets/ankasa-auth.png)      |           ![]()           |
+|                          Search Ticket Page                           | Search Ticket Page Mobile |
+| ![Search Ticket Page](./src/assets/snippets/ankasa-search-ticket.png) |           ![]()           |
+|                             Booking Page                              |    Top Up Page Mobile     |
+|         ![Booking Page](./src/assets/snippets/ankasa-app.png)         |           ![]()           |
+|                              Ticket Page                              |    Ticket Page Mobile     |
+|        ![Ticket Page](./src/assets/snippets/ankasa-ticket.png)        |           ![]()           |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Making a Progressive Web App
+## Ankasa Update!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Ankasa** is currently on development process!
 
-### Advanced Configuration
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- CONTACT -->
 
-### Deployment
+## Related Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [Ankasa Backend APIs](https://github.com/Team-Badai/Ankasa-API)
 
-### `npm run build` fails to minify
+## Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<center>
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/yuliamassel">
+          <img width="100" src="https://avatars.githubusercontent.com/u/92032216?v=4" alt="Yulia Massel Wicaksono"><br/>
+          <sub><b>Yulia Massel Wicaksono</b></sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/pilarhh">
+          <img width="100" src="https://avatars.githubusercontent.com/u/91721926?v=4" alt="Pilar Hengkiriang"><br/>
+          <sub><b>Pilar H</b></sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/JuanTombeng">
+          <img width="100" src="https://avatars.githubusercontent.com/u/48963648?v=4" alt="Juan Tombeng"><br/>
+          <sub><b>Juan Tombeng</b></sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/ferdianfh">
+          <img width="100" src="https://avatars.githubusercontent.com/u/71470787?s=96&v=4" alt="Ferdi Ferdiana"><br/>
+          <sub><b>Ferdi Ferdiana</b></sub>
+        </a>
+      </td>
+    </tr>
+  </table>
+</center>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
