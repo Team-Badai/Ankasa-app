@@ -35,7 +35,7 @@
 
 ### Built With
 
-This app was built with some technologies
+This app was built with some technologies below:
 
 - [ReactJS](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
